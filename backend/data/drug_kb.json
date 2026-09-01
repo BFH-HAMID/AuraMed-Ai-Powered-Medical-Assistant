@@ -1,0 +1,313 @@
+{
+  "version": "1.0.0",
+  "disclaimer": "Clinical reference subset for decision support; always verify against the national formulary and current lab results.",
+  "drugs": {
+    "aspirin": {
+      "name": "Aspirin",
+      "aliases": ["acetylsalicylic acid", "asa", "ecotrin", "অ্যাসপিরিন"],
+      "drug_class": "nsaid_antiplatelet",
+      "renal_cutoff_egfr": 45,
+      "cardiac_flags": ["bleeding_risk"],
+      "pregnancy_flag": "avoid_after_20_weeks",
+      "notes": "Low-dose antiplatelet; high doses are analgesic. Increases bleeding risk."
+    },
+    "warfarin": {
+      "name": "Warfarin",
+      "aliases": ["coumadin", "ওয়ারফারিন"],
+      "drug_class": "anticoagulant",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["bleeding_risk"],
+      "pregnancy_flag": "contraindicated",
+      "notes": "Narrow therapeutic index; requires INR monitoring. Many interactions."
+    },
+    "clopidogrel": {
+      "name": "Clopidogrel",
+      "aliases": ["plavix", "ক্লোপিডোগ্রেল"],
+      "drug_class": "antiplatelet",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["bleeding_risk"],
+      "pregnancy_flag": "use_only_if_needed",
+      "notes": "Prodrug; omeprazole reduces activation."
+    },
+    "ibuprofen": {
+      "name": "Ibuprofen",
+      "aliases": ["brufen", "advil", "motrin", "আইবুপ্রোফেন"],
+      "drug_class": "nsaid",
+      "renal_cutoff_egfr": 60,
+      "cardiac_flags": ["bleeding_risk", "hypertension_worsening", "heart_failure_worsening"],
+      "pregnancy_flag": "avoid_after_20_weeks",
+      "notes": "NSAID — avoid in CKD, heart failure, active ulcer and on anticoagulants."
+    },
+    "naproxen": {
+      "name": "Naproxen",
+      "aliases": ["naprosyn", "ন্যাপ্রোক্সেন"],
+      "drug_class": "nsaid",
+      "renal_cutoff_egfr": 60,
+      "cardiac_flags": ["bleeding_risk", "hypertension_worsening"],
+      "pregnancy_flag": "avoid_after_20_weeks",
+      "notes": "Long-acting NSAID; high GI/renal risk."
+    },
+    "diclofenac": {
+      "name": "Diclofenac",
+      "aliases": ["voltaren", "ডিক্লোফেনাক"],
+      "drug_class": "nsaid",
+      "renal_cutoff_egfr": 60,
+      "cardiac_flags": ["bleeding_risk", "hypertension_worsening", "heart_failure_worsening"],
+      "pregnancy_flag": "avoid_after_20_weeks",
+      "notes": "Highest cardiovascular risk among common NSAIDs."
+    },
+    "paracetamol": {
+      "name": "Paracetamol",
+      "aliases": ["acetaminophen", "acetaminophen", "napa", "tamenol", "প্যারাসিটামল"],
+      "drug_class": "analgesic_antipyretic",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": [],
+      "pregnancy_flag": "preferred_analgesic",
+      "notes": "Max 4 g/day adult; hepatotoxic in overdose."
+    },
+    "metformin": {
+      "name": "Metformin",
+      "aliases": ["glucophage", "মেটফরমিন", "গ্লুকোফেজ"],
+      "drug_class": "biguanide_antidiabetic",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": [],
+      "pregnancy_flag": "safe_under_supervision",
+      "notes": "Hold if eGFR <30; review 30-45; hold around contrast/AKI (lactic acidosis)."
+    },
+    "glibenclamide": {
+      "name": "Glibenclamide",
+      "aliases": ["glyburide", "গ্লিবেনক্লামাইড"],
+      "drug_class": "sulfonylurea",
+      "renal_cutoff_egfr": 60,
+      "cardiac_flags": [],
+      "pregnancy_flag": "switch_to_insulin",
+      "notes": "High hypoglycemia risk, especially elderly/CKD."
+    },
+    "insulin": {
+      "name": "Insulin",
+      "aliases": ["ইনসুলিন"],
+      "drug_class": "antidiabetic_injectable",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": [],
+      "pregnancy_flag": "safe_under_supervision",
+      "notes": "Renal failure slows clearance — monitor for hypoglycemia."
+    },
+    "amlodipine": {
+      "name": "Amlodipine",
+      "aliases": ["norvasc", "অ্যামলোডিপিন"],
+      "drug_class": "calcium_channel_blocker",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["hypotension_risk"],
+      "pregnancy_flag": "avoid",
+      "notes": "Common edema; CYP3A4 interactions."
+    },
+    "enalapril": {
+      "name": "Enalapril",
+      "aliases": ["vasotec", "এনালাপ্রিল"],
+      "drug_class": "ace_inhibitor",
+      "renal_cutoff_egfr": 60,
+      "cardiac_flags": ["hyperkalemia_risk", "hypotension_risk"],
+      "pregnancy_flag": "contraindicated",
+      "notes": "Monitor K+ and creatinine; avoid in pregnancy (fetal renal injury)."
+    },
+    "losartan": {
+      "name": "Losartan",
+      "aliases": ["cozaar", "লোসার্টান"],
+      "drug_class": "arb",
+      "renal_cutoff_egfr": 60,
+      "cardiac_flags": ["hyperkalemia_risk", "hypotension_risk"],
+      "pregnancy_flag": "contraindicated",
+      "notes": "Same monitoring as ACE inhibitors."
+    },
+    "furosemide": {
+      "name": "Furosemide",
+      "aliases": ["lasix", "ফুরোসেমাইড"],
+      "drug_class": "loop_diuretic",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["hypotension_risk", "electrolyte_depletion"],
+      "pregnancy_flag": "use_only_if_needed",
+      "notes": "Monitor volume status, K+, Na+."
+    },
+    "spironolactone": {
+      "name": "Spironolactone",
+      "aliases": ["aldactone", "স্পিরোনোল্যাকটোন"],
+      "drug_class": "potassium_sparing_diuretic",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": ["hyperkalemia_risk"],
+      "pregnancy_flag": "avoid",
+      "notes": "Avoid if eGFR <30; dangerous hyperkalemia with ACEi/ARB/TMP-SMX."
+    },
+    "atorvastatin": {
+      "name": "Atorvastatin",
+      "aliases": ["lipitor", "অ্যাটোরভাস্ট্যাটিন"],
+      "drug_class": "statin",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": [],
+      "pregnancy_flag": "contraindicated",
+      "notes": "CYP3A4 interactions (amlodipine, azoles)."
+    },
+    "omeprazole": {
+      "name": "Omeprazole",
+      "aliases": ["prilosec", "ওমেপ্রাজল"],
+      "drug_class": "ppi",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": [],
+      "pregnancy_flag": "generally_safe",
+      "notes": "Reduces clopidogrel activation; prefer pantoprazole if PPI needed."
+    },
+    "ciprofloxacin": {
+      "name": "Ciprofloxacin",
+      "aliases": ["cipro", "সিপ্রোফ্লক্সাসিন"],
+      "drug_class": "fluoroquinolone",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": ["qt_prolongation"],
+      "pregnancy_flag": "avoid",
+      "notes": "QT prolongation; tendon rupture risk; warfarin INR interaction."
+    },
+    "azithromycin": {
+      "name": "Azithromycin",
+      "aliases": ["zithromax", "জিথ্রোম্যাক্স", "অ্যাজিথ্রোমাইসিন"],
+      "drug_class": "macrolide",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["qt_prolongation"],
+      "pregnancy_flag": "use_only_if_needed",
+      "notes": "QT prolongation; combine cautiously with other QT drugs."
+    },
+    "amoxicillin": {
+      "name": "Amoxicillin",
+      "aliases": ["amoxil", "অ্যামোক্সিসিলিন"],
+      "drug_class": "penicillin",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": [],
+      "pregnancy_flag": "generally_safe",
+      "notes": "Penicillin allergy cross-reactivity."
+    },
+    "co-trimoxazole": {
+      "name": "Co-trimoxazole (TMP-SMX)",
+      "aliases": ["trimethoprim-sulfamethoxazole", "septran", "septra", "টিএমপি-এসএমএক্স"],
+      "drug_class": "sulfonamide",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": ["hyperkalemia_risk"],
+      "pregnancy_flag": "avoid",
+      "notes": "Hyperkalemia (esp. with ACEi/ARB/spironolactone); renal dose adjustment; sulfa allergy."
+    },
+    "metronidazole": {
+      "name": "Metronidazole",
+      "aliases": ["flagyl", "মেট্রোনিডাজল"],
+      "drug_class": "nitroimidazole",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": [],
+      "pregnancy_flag": "avoid_first_trimester",
+      "notes": "Potentiates warfarin (INR rise); avoid alcohol."
+    },
+    "atenolol": {
+      "name": "Atenolol",
+      "aliases": ["tenormin", "অ্যাটেনোলল"],
+      "drug_class": "beta_blocker",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": ["bradycardia_risk", "hypotension_risk"],
+      "pregnancy_flag": "avoid",
+      "notes": "Renally cleared; may mask hypoglycemia symptoms in diabetics."
+    },
+    "fluconazole": {
+      "name": "Fluconazole",
+      "aliases": ["diflucan", "ফ্লুকোনাজল"],
+      "drug_class": "azole_antifungal",
+      "renal_cutoff_egfr": 50,
+      "cardiac_flags": ["qt_prolongation"],
+      "pregnancy_flag": "avoid_high_dose",
+      "notes": "Strong inhibitor — raises warfarin INR and statin levels; QT risk."
+    },
+    "ondansetron": {
+      "name": "Ondansetron",
+      "aliases": ["zofran", "অনডানসেট্রন"],
+      "drug_class": "antiemetic_5ht3",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["qt_prolongation"],
+      "pregnancy_flag": "use_only_if_needed",
+      "notes": "Dose-dependent QT prolongation."
+    },
+    "hydroxyzine": {
+      "name": "Hydroxyzine",
+      "aliases": ["atarax", "হাইড্রোক্সিজিন"],
+      "drug_class": "antihistamine_sedating",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["qt_prolongation"],
+      "pregnancy_flag": "avoid",
+      "notes": "QT prolongation at higher doses."
+    },
+    "sildenafil": {
+      "name": "Sildenafil",
+      "aliases": ["viagra", "সিলডেনাফিল"],
+      "drug_class": "pde5_inhibitor",
+      "renal_cutoff_egfr": 30,
+      "cardiac_flags": ["hypotension_risk"],
+      "pregnancy_flag": "not_indicated",
+      "notes": "FATAL hypotension with nitrates; caution with antihypertensives."
+    },
+    "nitroglycerin": {
+      "name": "Nitroglycerin",
+      "aliases": ["gtn", "isosorbide", "নাইট্রোগ্লিসারিন"],
+      "drug_class": "nitrate",
+      "renal_cutoff_egfr": null,
+      "cardiac_flags": ["hypotension_risk"],
+      "pregnancy_flag": "use_only_if_needed",
+      "notes": "Absolute contraindication with PDE5 inhibitors (sildenafil)."
+    }
+  },
+  "interactions": [
+    {"a": "warfarin", "b": "aspirin", "severity": "critical", "mechanism": "Additive antithrombotic effect — major bleeding risk.", "action": "Avoid combination unless prescribed by a specialist with monitored indication.", "bn": "ওয়ারফারিন ও অ্যাসপিরিন একসাথে রক্তপাতের ঝুঁকি বাড়ায় — বিশেষজ্ঞের নির্দেশ ছাড়া একসাথে দেবেন না।"},
+    {"a": "warfarin", "b": "ibuprofen", "severity": "critical", "mechanism": "NSAID causes gastric erosions plus anticoagulation — GI hemorrhage risk.", "action": "Do not co-prescribe; use paracetamol for pain.", "bn": "ওয়ারফারিনের সাথে আইবুপ্রোফেন পাকস্থলীতে রক্তপাত ঘটাতে পারে — প্যারাসিটামল ব্যবহার করুন।"},
+    {"a": "warfarin", "b": "naproxen", "severity": "critical", "mechanism": "GI bleeding risk markedly increased.", "action": "Avoid; paracetamol preferred.", "bn": "ওয়ারফারিন ও ন্যাপ্রোক্সেন একসাথে এড়িয়ে চলুন।"},
+    {"a": "warfarin", "b": "diclofenac", "severity": "critical", "mechanism": "GI bleeding risk.", "action": "Avoid; paracetamol preferred.", "bn": "ওয়ারফারিনের সাথে ডিক্লোফেনাক এড়িয়ে চলুন।"},
+    {"a": "warfarin", "b": "ciprofloxacin", "severity": "high", "mechanism": "Fluoroquinolones alter gut flora and metabolism — INR may rise.", "action": "Monitor INR closely within 2-3 days if unavoidable.", "bn": "সিপ্রোফ্লক্সাসিন ওয়ারফারিনের INR বাড়াতে পারে — INR মনিটর করুন।"},
+    {"a": "warfarin", "b": "metronidazole", "severity": "high", "mechanism": "Inhibits warfarin metabolism — INR rises, bleeding risk.", "action": "Reduce warfarin dose proactively and monitor INR.", "bn": "মেট্রোনিডাজল ওয়ারফারিনের কার্যকারিতা বাড়ায় — INR পরীক্ষা করুন।"},
+    {"a": "warfarin", "b": "fluconazole", "severity": "critical", "mechanism": "Strong CYP2C9 inhibition — sharp INR rise.", "action": "Avoid or reduce warfarin ~50% with daily INR monitoring.", "bn": "ফ্লুকোনাজল ওয়ারফারিনের INR দ্রুত বাড়ায় — বিশেষজ্ঞের পরামর্শ নিন।"},
+    {"a": "warfarin", "b": "amoxicillin", "severity": "moderate", "mechanism": "Gut flora changes can modestly increase INR.", "action": "Check INR if prolonged course.", "bn": "দীর্ঘদিন অ্যামোক্সিসিলিন দিলে INR পরীক্ষা করুন।"},
+    {"a": "warfarin", "b": "paracetamol", "severity": "moderate", "mechanism": "Regular high-dose paracetamol (>2 g/day for several days) can raise INR.", "action": "Keep within 4 g/day; monitor INR on sustained use.", "bn": "টানা বেশি মাত্রায় প্যারাসিটামল নিলে INR পরীক্ষা করুন।"},
+    {"a": "clopidogrel", "b": "omeprazole", "severity": "high", "mechanism": "Omeprazole inhibits CYP2C19 activation of clopidogrel.", "action": "Switch PPI to pantoprazole.", "bn": "ক্লোপিডোগ্রেলের সাথে ওমেপ্রাজল নয় — প্যান্টোপ্রাজল ব্যবহার করুন।"},
+    {"a": "clopidogrel", "b": "ibuprofen", "severity": "high", "mechanism": "Additive bleeding risk.", "action": "Avoid; paracetamol preferred.", "bn": "ক্লোপিডোগ্রেল ও আইবুপ্রোফেন একসাথে রক্তপাতের ঝুঁকি বাড়ায়।"},
+    {"a": "clopidogrel", "b": "naproxen", "severity": "high", "mechanism": "Additive bleeding risk.", "action": "Avoid; paracetamol preferred.", "bn": "ক্লোপিডোগ্রেল ও ন্যাপ্রোক্সেন একসাথে এড়িয়ে চলুন।"},
+    {"a": "aspirin", "b": "ibuprofen", "severity": "moderate", "mechanism": "Ibuprofen can block aspirin's antiplatelet binding; also additive GI bleed.", "action": "If both needed, take aspirin first, ibuprofen at least 2h later; prefer alternatives.", "bn": "অ্যাসপিরিনের আগে/সাথে আইবুপ্রোফেন না নেওয়াই ভালো।"},
+    {"a": "aspirin", "b": "naproxen", "severity": "high", "mechanism": "Additive GI bleeding.", "action": "Avoid combination.", "bn": "অ্যাসপিরিন ও ন্যাপ্রোক্সেন একসাথে এড়িয়ে চলুন।"},
+    {"a": "aspirin", "b": "diclofenac", "severity": "high", "mechanism": "Additive GI bleeding.", "action": "Avoid combination.", "bn": "অ্যাসপিরিন ও ডিক্লোফেনাক একসাথে এড়িয়ে চলুন।"},
+    {"a": "enalapril", "b": "spironolactone", "severity": "high", "mechanism": "Both raise serum potassium — dangerous hyperkalemia.", "action": "Monitor K+ and creatinine within 1 week; avoid in CKD stage 3b+.", "bn": "এনালাপ্রিল ও স্পিরোনোল্যাকটোন রক্তে পটাশিয়াম বাড়ায় — পরীক্ষা করুন।"},
+    {"a": "losartan", "b": "spironolactone", "severity": "high", "mechanism": "Additive potassium retention.", "action": "Monitor K+; avoid in advanced CKD.", "bn": "লোসার্টান ও স্পিরোনোল্যাকটোন একসাথে পটাশিয়াম বাড়ায়।"},
+    {"a": "enalapril", "b": "losartan", "severity": "high", "mechanism": "Dual RAAS blockade — hyperkalemia, AKI, hypotension without proven benefit.", "action": "Do not combine.", "bn": "এনালাপ্রিল ও লোসার্টান একসাথে দেবেন না।"},
+    {"a": "enalapril", "b": "co-trimoxazole", "severity": "critical", "mechanism": "ACEi + TMP-SMX: sudden severe hyperkalemia and AKI.", "action": "Avoid; choose alternative antibiotic; if essential monitor K+ at 48-72h.", "bn": "এনালাপ্রিলের সাথে কো-ট্রাইমক্সাজল মারাত্মক পটাশিয়াম বৃদ্ধি ঘটাতে পারে।"},
+    {"a": "losartan", "b": "co-trimoxazole", "severity": "critical", "mechanism": "ARB + TMP-SMX hyperkalemia.", "action": "Avoid; monitor K+ if unavoidable.", "bn": "লোসার্টানের সাথে কো-ট্রাইমক্সাজল এড়িয়ে চলুন।"},
+    {"a": "spironolactone", "b": "co-trimoxazole", "severity": "critical", "mechanism": "Marked potassium retention — fatal hyperkalemia reported.", "action": "Do not co-prescribe, especially elderly/CKD.", "bn": "স্পিরোনোল্যাকটোন ও কো-ট্রাইমক্সাজল একসাথে মারাত্মক ঝুঁকিপূর্ণ।"},
+    {"a": "ibuprofen", "b": "enalapril", "severity": "high", "mechanism": "NSAID + ACEi: AKI, hyperkalemia, BP control loss.", "action": "Avoid NSAIDs in CKD/hypertension; paracetamol preferred.", "bn": "এনালাপ্রিল বা উচ্চ রক্তচাপের রোগীদের আইবুপ্রোফেন এড়িয়ে চলুন।"},
+    {"a": "ibuprofen", "b": "losartan", "severity": "high", "mechanism": "NSAID + ARB: AKI and hyperkalemia.", "action": "Avoid; paracetamol preferred.", "bn": "লোসার্টানের সাথে আইবুপ্রোফেন কিডনির ক্ষতি করতে পারে।"},
+    {"a": "diclofenac", "b": "enalapril", "severity": "high", "mechanism": "NSAID + ACEi renal injury / BP.", "action": "Avoid combination.", "bn": "ডিক্লোফেনাক ও এনালাপ্রিল একসাথে এড়িয়ে চলুন।"},
+    {"a": "ibuprofen", "b": "furosemide", "severity": "moderate", "mechanism": "NSAIDs blunt diuretic response and worsen renal perfusion.", "action": "Monitor weight, edema and renal function.", "bn": "আইবুপ্রোফেন ফুরোসেমাইডের কার্যকারিতা কমায়।"},
+    {"a": "ciprofloxacin", "b": "ondansetron", "severity": "high", "mechanism": "Both prolong QT interval — arrhythmia (Torsades) risk.", "action": "Avoid combining; check electrolytes; ECG if risk factors.", "bn": "সিপ্রোফ্লক্সাসিন ও অনডানসেট্রন একসাথে হৃদস্পন্দনের সমস্যা বাড়ায়।"},
+    {"a": "azithromycin", "b": "ondansetron", "severity": "high", "mechanism": "Additive QT prolongation.", "action": "Avoid or monitor ECG/K+/Mg2+.", "bn": "অ্যাজিথ্রোমাইসিন ও অনডানসেট্রন একসাথে সাবধানতা প্রয়োজন।"},
+    {"a": "fluconazole", "b": "ondansetron", "severity": "high", "mechanism": "Additive QT prolongation.", "action": "Avoid combination in cardiac patients.", "bn": "ফ্লুকোনাজল ও অনডানসেট্রন হৃদরোগীদের জন্য ঝুঁকিপূর্ণ।"},
+    {"a": "ciprofloxacin", "b": "azithromycin", "severity": "moderate", "mechanism": "Additive QT prolongation.", "action": "Avoid if long QT / hypokalemia; otherwise monitor.", "bn": "দুটি অ্যান্টিবায়োটিক একসাথে হৃদস্পন্দনে প্রভাব ফেলতে পারে।"},
+    {"a": "hydroxyzine", "b": "azithromycin", "severity": "moderate", "mechanism": "Additive QT prolongation.", "action": "Limit hydroxyzine dose; avoid with other QT drugs.", "bn": "হাইড্রোক্সিজিন ও অ্যাজিথ্রোমাইসিন একসাথে সাবধানতা প্রয়োজন।"},
+    {"a": "amlodipine", "b": "atorvastatin", "severity": "moderate", "mechanism": "Amlodipine increases atorvastatin exposure (CYP3A4).", "action": "Limit atorvastatin to 20 mg/day; watch for myopathy.", "bn": "অ্যামলোডিপিনের সাথে অ্যাটোরভাস্ট্যাটিনের মাত্রা সীমিত রাখুন।"},
+    {"a": "sildenafil", "b": "nitroglycerin", "severity": "critical", "mechanism": "PDE5 inhibitor + nitrate: catastrophic hypotension.", "action": "ABSOLUTE contraindication — never within 24-48h.", "bn": "সিলডেনাফিল ও নাইট্রোগ্লিসারিন কখনোই একসাথে নয় — মারাত্মক রক্তচাপ কমে যায়।"},
+    {"a": "sildenafil", "b": "amlodipine", "severity": "moderate", "mechanism": "Additive vasodilation — symptomatic hypotension.", "action": "Warn patient; start lowest dose; monitor BP.", "bn": "সিলডেনাফিল ও রক্তচাপের ওষুধ একসাথে রক্তচাপ কমাতে পারে।"},
+    {"a": "furosemide", "b": "enalapril", "severity": "moderate", "mechanism": "First-dose hypotension in volume-depleted patients.", "action": "Start low, monitor BP; consider reducing diuretic first.", "bn": "ফুরোসেমাইড ও এনালাপ্রিল শুরুতে রক্তচাপ কমাতে পারে — সাবধানতা প্রয়োজন।"},
+    {"a": "atenolol", "b": "insulin", "severity": "moderate", "mechanism": "Beta-blockers mask tachycardia/tremor of hypoglycemia.", "action": "Educate patient; monitor glucose closely.", "bn": "অ্যাটেনোলল ইনসুলিনের রোগীর লো-সুগার লক্ষণ ঢেকে দিতে পারে — সতর্ক থাকুন।"},
+    {"a": "fluconazole", "b": "atorvastatin", "severity": "high", "mechanism": "CYP3A4 inhibition raises statin levels — rhabdomyolysis risk.", "action": "Hold/reduce statin during fluconazole course.", "bn": "ফ্লুকোনাজল খাওয়ার সময় অ্যাটোরভাস্ট্যাটিন সাময়িক বন্ধ রাখুন।"}
+  ],
+  "allergy_cross_reactivity": {
+    "penicillin": ["amoxicillin"],
+    "sulfonamide": ["co-trimoxazole"],
+    "nsaid": ["aspirin", "ibuprofen", "naproxen", "diclofenac"],
+    "azole": ["fluconazole", "metronidazole"],
+    "macrolide": ["azithromycin"]
+  },
+  "cardiac_flag_guidance": {
+    "qt_prolongation": {"en": "QT-prolonging drug — check ECG, K+, Mg2+; do not stack QT drugs.", "bn": "QT দীর্ঘকারী ওষুধ — ECG, পটাশিয়াম ও ম্যাগনেসিয়াম পরীক্ষা করুন।"},
+    "bleeding_risk": {"en": "Bleeding-risk drug — review anticoagulants/NSAIDs and watch for black stools/bruising.", "bn": "রক্তপাত ঝুঁকি — কালো পায়খানা বা ক্ষত হলে দ্রুত চিকিৎসককে জানান।"},
+    "hyperkalemia_risk": {"en": "Raises potassium — monitor serum K+ and renal function.", "bn": "পটাশিয়াম বাড়াতে পারে — রক্ত পরীক্ষায় পটাশিয়াম দেখুন।"},
+    "hypotension_risk": {"en": "Can lower blood pressure — monitor for dizziness, check standing BP.", "bn": "রক্তচাপ কমাতে পারে — মাথা ঘোরালে চিকিৎসককে জানান।"},
+    "bradycardia_risk": {"en": "Can slow heart rate — monitor pulse.", "bn": "হৃদস্পন্দন কমাতে পারে — নাড়ির গতি খেয়াল রাখুন।"},
+    "electrolyte_depletion": {"en": "May deplete potassium/sodium — monitor electrolytes.", "bn": "পটাশিয়াম/সোডিয়াম কমাতে পারে — পরীক্ষা করুন।"},
+    "hypertension_worsening": {"en": "May worsen blood pressure control.", "bn": "রক্তচাপ বাড়াতে পারে।"},
+    "heart_failure_worsening": {"en": "May worsen heart failure / fluid retention.", "bn": "হৃদরোগ/হার্ট ফেইলিউর থাকলে এড়িয়ে চলুন।"}
+  }
+}

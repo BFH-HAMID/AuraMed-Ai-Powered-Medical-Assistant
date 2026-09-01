@@ -1,0 +1,202 @@
+{
+  "version": "1.0.0",
+  "description": "Node 14 — First Aid & Emergency Guidebook (bilingual, offline). Based on standard Red Cross / national emergency-care first-aid protocols; always call professional help for red flags.",
+  "protocols": {
+    "chest_pain": {
+      "title_en": "Suspected heart attack",
+      "title_bn": "সন্দেহভাজন হার্ট অ্যাটাক",
+      "steps_en": [
+        "Call emergency services immediately.",
+        "Keep the person calm and at rest in a semi-upright position.",
+        "Ask about aspirin allergy/bleeding; if none and dispatcher advises, give 300 mg aspirin to chew.",
+        "Loosen tight clothing; monitor breathing and consciousness.",
+        "If they become unresponsive and are not breathing normally, start CPR."
+      ],
+      "steps_bn": [
+        "অবিলম্বে জরুরি সেবায় কল করুন।",
+        "রোগীকে শান্ত রাখুন, আধা-বসা অবস্থায় বিশ্রাম দিন।",
+        "অ্যাসপিরিন অ্যালার্জি/রক্তপাত আছে কিনা জিজ্ঞেস করুন; না থাকলে ও জরুরি কর্মী বললে ৩০০ মিগ্রা অ্যাসপিরিন চিবিয়ে দিন।",
+        "আঁটসাঁট পোশাক আলগা করুন; শ্বাস-প্রশ্বাস ও চেতনা খেয়াল রাখুন।",
+        "অজ্ঞান হয়ে গেলে ও স্বাভাবিক শ্বাস না থাকলে CPR শুরু করুন।"
+      ]
+    },
+    "stroke": {
+      "title_en": "Suspected stroke (FAST)",
+      "title_bn": "সন্দেহভাজন স্ট্রোক",
+      "steps_en": [
+        "FAST: Face droop? Arm weakness? Speech slurred? Time to call emergency services — do it immediately.",
+        "Note the exact time symptoms began (last known well).",
+        "Lay the person on their side with head slightly raised if vomiting risk.",
+        "Do NOT give food, drink or medicine — swallowing may be impaired."
+      ],
+      "steps_bn": [
+        "FAST: মুখ বাঁকা? হাত দুর্বল? কথা জড়ানো? — এখনই জরুরি সেবায় কল করুন।",
+        "লক্ষণ শুরুর সঠিক সময় (শেষ ভালো থাকার সময়) নোট করুন।",
+        "বমির আশঙ্কা থাকলে মাথা সামান্য উঁচু করে কাত করে শোয়ান।",
+        "কোনো খাবার, পানি বা ওষুধ দেবেন না — গিলতে সমস্যা হতে পারে।"
+      ]
+    },
+    "choking_breathing": {
+      "title_en": "Choking / severe breathlessness",
+      "title_bn": "শ্বাসরুদ্ধ / তীব্র শ্বাসকষ্ট",
+      "steps_en": [
+        "If the person can cough forcefully, encourage coughing.",
+        "If they cannot breathe, speak or cough: stand behind, abdominal thrusts (Heimlich) — fists between navel and ribs, inward-upward.",
+        "For pregnant or obese persons use chest thrusts.",
+        "If unconscious, call emergency services and begin CPR; check mouth for object each time breaths are given."
+      ],
+      "steps_bn": [
+        "জোরে কাশতে পারলে কাশতে উৎসাহ দিন।",
+        "শ্বাস/কথা/কাশি বন্ধ হলে: পেছনে দাঁড়িয়ে পেটে চাপ (Heimlich) দিন — নাভি ও পাঁজরের মাঝে মুষ্টি ভেতরে-উপরে।",
+        "গর্ভবতী বা স্থূলকায় হলে বুকে চাপ দিন।",
+        "অজ্ঞান হলে জরুরি সেবায় কল করে CPR শুরু করুন; প্রতিবার শ্বাস দেওয়ার আগে মুখে বস্তু আছে কিনা দেখুন।"
+      ]
+    },
+    "anaphylaxis": {
+      "title_en": "Severe allergic reaction (anaphylaxis)",
+      "title_bn": "মারাত্মক এলার্জি (অ্যানাফাইল্যাক্সিস)",
+      "steps_en": [
+        "Call emergency services immediately.",
+        "Use adrenaline auto-injector in the outer thigh if available (can be through clothing).",
+        "Lie flat with legs raised; if breathing difficult, sit up; do not stand/walk.",
+        "A second dose after 5-10 minutes if no improvement and another pen is available."
+      ],
+      "steps_bn": [
+        "অবিলম্বে জরুরি সেবায় কল করুন।",
+        "অ্যাড্রেনালিন পেন থাকলে উরুর বাইরের পেশিতে দিন (পোশাকের উপর দিয়েও)।",
+        "পা উঁচু করে চিৎ করে শোয়ান; শ্বাসকষ্ট থাকলে বসুন; দাঁড়াবেন/হাঁটবেন না।",
+        "৫-১০ মিনিটে উন্নতি না হলে ও দ্বিতীয় পেন থাকলে আরেক ডোজ দিন।"
+      ]
+    },
+    "severe_bleeding": {
+      "title_en": "Severe bleeding",
+      "title_bn": "তীব্র রক্তপাত",
+      "steps_en": [
+        "Apply firm, direct pressure with a clean cloth and hold without peeking.",
+        "Do NOT remove embedded objects — pad around them.",
+        "Call emergency services; treat for shock: lie flat, raise legs, keep warm.",
+        "If blood soaks through, add more cloth on top — do not remove the first."
+      ],
+      "steps_bn": [
+        "পরিষ্কার কাপড় দিয়ে শক্ত করে সরাসরি চাপ দিন, বারবার খুলে দেখবেন না।",
+        "শরীরে গাঁথা বস্তু খুলবেন না — চারপাশে প্যাডিং দিন।",
+        "জরুরি সেবায় কল করুন; শক-এর ব্যবস্থা: চিৎ শোয়ান, পা উঁচু, উষ্ণ রাখুন।",
+        "রক্তে কাপড় ভিজে গেলে উপরে আরও কাপড় দিন — প্রথমটি সরাবেন না।"
+      ]
+    },
+    "unconscious": {
+      "title_en": "Unconscious but breathing",
+      "title_bn": "অজ্ঞান কিন্তু শ্বাস চলছে",
+      "steps_en": [
+        "Check response: shout and tap shoulders.",
+        "Open airway (head tilt, chin lift); check breathing for up to 10 seconds.",
+        "If breathing normally: place in recovery position (side, head tilted, airway open).",
+        "If not breathing normally: start CPR (30 compressions : 2 rescue breaths) until help arrives.",
+        "Call emergency services immediately."
+      ],
+      "steps_bn": [
+        "সাড়া পরীক্ষা করুন: চিৎকার করে কাঁধে হাত দিন।",
+        "শ্বাসনালী খুলুন (মাথা পেছনে, থুতনি উপরে); ১০ সেকেন্ড পর্যন্ত শ্বাস দেখুন।",
+        "স্বাভাবিক শ্বাস থাকলে রিকভারি পজিশনে (কাত করে, মাথা হেলানো) রাখুন।",
+        "স্বাভাবিক শ্বাস না থাকলে CPR শুরু করুন (৩০ চাপ : ২ শ্বাস) সাহায্য না আসা পর্যন্ত।",
+        "অবিলম্বে জরুরি সেবায় কল করুন।"
+      ]
+    },
+    "seizure": {
+      "title_en": "Seizure / convulsion",
+      "title_bn": "খিঁচুনি / মৃগীর টান",
+      "steps_en": [
+        "Protect the head; move dangerous objects away.",
+        "Do NOT restrain; do NOT put anything in the mouth.",
+        "Time the seizure; place on side when movements stop.",
+        "Emergency if: lasts >5 minutes, repeats without recovery, injury, pregnancy, diabetes, or first ever seizure."
+      ],
+      "steps_bn": [
+        "মাথা রক্ষা করুন; বিপজ্জনক জিনিস সরিয়ে দিন।",
+        "চাপে ধরবেন না; মুখে কিছু গলাবেন না।",
+        "সময় গণনা করুন; টান থামলে কাত করে রাখুন।",
+        "জরুরি যদি: ৫ মিনিটের বেশি চলে, সেরে না উঠে আবার হয়, আঘাত, গর্ভাবস্থা, ডায়াবেটিস বা প্রথমবার হয়।"
+      ]
+    },
+    "poisoning": {
+      "title_en": "Poisoning / overdose",
+      "title_bn": "বিষক্রিয়া / ওষুধাধিক্য",
+      "steps_en": [
+        "Call emergency services or poison control immediately; bring the substance/container.",
+        "Do NOT induce vomiting unless instructed.",
+        "If substance on skin/eyes: flush with running water for 15-20 minutes.",
+        "If unconscious but breathing: recovery position; be ready for CPR."
+      ],
+      "steps_bn": [
+        "অবিলম্বে জরুরি সেবা/বিষ নিয়ন্ত্রণে কল করুন; ওষুধ/পদার্থের পাত্র সাথে নিন।",
+        "নির্দেশ ছাড়া বমি করাবেন না।",
+        "ত্বকে/চোখে লাগলে ১৫-২০ মিনিট প্রবাহিত পানিতে ধুয়ে ফেলুন।",
+        "অজ্ঞান কিন্তু শ্বাস থাকলে রিকভারি পজিশন; CPR-এর জন্য প্রস্তুত থাকুন।"
+      ]
+    },
+    "burns": {
+      "title_en": "Burns",
+      "title_bn": "পোড়া",
+      "steps_en": [
+        "Stop the burning process (flames: stop-drop-roll; chemicals: brush off then flush).",
+        "Cool with cool running water for 20 minutes — do this FIRST, do not use ice.",
+        "Remove rings/belts/tight items before swelling starts.",
+        "Cover loosely with clean cling film/cloth; do NOT pop blisters or apply toothpaste/oil.",
+        "Large, deep, face/hands/genitals, chemical or electrical burns: emergency care."
+      ],
+      "steps_bn": [
+        "পোড়ার কারণ বন্ধ করুন (আগুন: থেমে-শুয়ে-গড়াগড়ি; রাসায়নিক: ঝেড়ে ফেলে ধুয়ে ফেলুন)।",
+        "ঠান্ডা প্রবাহিত পানিতে ২০ মিনিট ঠান্ডা করুন — আগে এটাই, বরফ দেবেন না।",
+        "ফোলার আগে আংটি/বেল্ট/আঁটসাঁট জিনিস সরান।",
+        "পরিষ্কার ক্লিং ফিল্ম/কাপড় দিয়ে আলগা ঢাকুন; ফোস্কা ফাটাবেন না, টুথপেস্ট/তেল দেবেন না।",
+        "বড়, গভীর, মুখ/হাত/গুপ্তাঙ্গ, রাসায়নিক বা বৈদ্যুতিক পোড়া: জরুরি সেবা।"
+      ]
+    },
+    "pregnancy_emergency": {
+      "title_en": "Bleeding / severe pain in pregnancy",
+      "title_bn": "গর্ভাবস্থায় রক্তপাত / তীব্র ব্যথা",
+      "steps_en": [
+        "Go to the nearest obstetric emergency facility immediately.",
+        "Lie on the left side; keep warm; do not insert anything vaginally.",
+        "Save any soaked pads/cloths for the medical team to estimate blood loss."
+      ],
+      "steps_bn": [
+        "অবিলম্বে নিকটস্থ প্রসূতি জরুরি কেন্দ্রে যান।",
+        "বাম কাত হয়ে শুয়ে থাকুন; উষ্ণ রাখুন; যোনিপথে কিছু প্রবেশ করাবেন না।",
+        "রক্তের পরিমাণ বোঝার জন্য ভেজা প্যাড/কাপড় চিকিৎসা দলের কাছে রাখুন।"
+      ]
+    },
+    "dehydration": {
+      "title_en": "Severe diarrhea / dehydration",
+      "title_bn": "তীব্র ডায়রিয়া / পানিশূন্যতা",
+      "steps_en": [
+        "Start oral rehydration solution (ORS) immediately — small frequent sips.",
+        "Homemade fallback: 1 liter safe water + 6 tsp sugar + ½ tsp salt.",
+        "Children under 5: also zinc 10-20 mg daily for 10-14 days per national guidance.",
+        "Continue feeding; seek urgent care for bloody stool, no urine 6-8h, sunken eyes, lethargy, or inability to drink."
+      ],
+      "steps_bn": [
+        "সঙ্গে সঙ্গে ORS খাওয়ানো শুরু করুন — অল্প অল্প বারবার।",
+        "বিকল্প: ১ লিটার নিরাপদ পানি + ৬ চা-চামচ চিনি + আধা চা-চামচ লবণ।",
+        "৫ বছরের কম বয়সী শিশু: জাতীয় নির্দেশনা অনুযায়ী ১০-১৪ দিন জিংক ১০-২০ মিগ্রা।",
+        "খাওয়ানো চালিয়ে যান; রক্তমিশ্রিত পায়খানা, ৬-৮ ঘণ্টা প্রস্রাব না হওয়া, চোখ বসে যাওয়া, ঝিমুনি বা পানি খেতে না পারলে জরুরি সেবা।"
+      ]
+    },
+    "hypoglycemia": {
+      "title_en": "Low blood sugar (diabetic)",
+      "title_bn": "রক্তে সুগার কম (ডায়াবেটিস)",
+      "steps_en": [
+        "If AWAKE and able to swallow: 15 g fast sugar — 3-4 glucose tablets, 150 ml juice/sugary drink, or 1 tbsp sugar.",
+        "Recheck after 15 minutes; repeat if still low (Rule of 15).",
+        "Then give a snack with complex carbohydrate if next meal is >1 hour away.",
+        "If UNCONSCIOUS: nothing by mouth; place on side; call emergency services. Use glucagon if trained/available."
+      ],
+      "steps_bn": [
+        "সচেতন ও গিলতে সক্ষম হলে: ১৫ গ্রাম দ্রুত চিনি — ৩-৪টি গ্লুকোজ ট্যাবলেট, ১৫০ মিলি জুস/চিনিযুক্ত পানীয় বা ১ বড় চামচ চিনি।",
+        "১৫ মিনিট পর আবার দেখুন; কম থাকলে আবার দিন (১৫-এর নিয়ম)।",
+        "পরবর্তী খাবার ১ ঘণ্টার বেশি দেরিতে হলে শর্করা জাতীয় নাস্তা দিন।",
+        "অজ্ঞান হলে: মুখে কিছু দেবেন না; কাত করে রাখুন; জরুরি সেবায় কল করুন। প্রশিক্ষণ/গ্লুকাগন থাকলে ব্যবহার করুন।"
+      ]
+    }
+  }
+}

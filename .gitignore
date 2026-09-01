@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# AuraMed — .gitignore
+# ---------------------------------------------------------------------------
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Environment / secrets  — NEVER commit PHI or encryption keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Runtime data (PHI-bearing runtime artifacts must never enter git)
+data/cache/
+data/audit/
+data/feedback/
+*.log
+*.log.jsonl
+
+# Model weights / large binaries downloaded at deploy time
+models/
+*.pt
+*.bin
+*.onnx
+*.whisper/
+tessdata/
+
+# Node / tooling
+node_modules/
+npm-debug.log*
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

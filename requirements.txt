@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------------
+# AuraMed: AI-Powered Medical Assistant — Python dependencies
+# Install: pip install -r requirements.txt
+# ---------------------------------------------------------------------------
+
+# --- Core API framework -----------------------------------------------------
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.29
+pydantic>=2.5
+python-multipart>=0.0.9        # multipart form uploads (audio / document OCR)
+
+# --- Infrastructure clients -------------------------------------------------
+httpx>=0.27                    # Dual-LLM HTTP client (Node 08) + FastAPI tests
+redis>=5.0                     # caching layer (Node 21 offline cache / rate limits)
+cryptography>=42.0             # AES-256-GCM encryption at rest (Node 16)
+
+# --- Testing ----------------------------------------------------------------
+pytest>=8.0
+pytest-asyncio>=0.23
+
+# ---------------------------------------------------------------------------
+# OPTIONAL — Heavy ML / edge runtime. Uncomment on GPU/edge nodes that need
+# the actual model weights. The API runs in "rule-based / stub" mode without
+# these, so the service stays deployable on low-resource community clinics.
+# ---------------------------------------------------------------------------
+# torch>=2.2                      # NLP / TrOCR inference
+# transformers>=4.40             # clinical LLMs, TrOCR handwriting model (Node 04)
+# sentencepiece>=0.2.0
+# openai-whisper>=20231117       # multilingual STT incl. Bengali (Node 01)
+# vosk>=0.3.45                   # offline streaming STT for edge nodes (Node 01/21)
+# pytesseract>=0.3.10            # printed-text OCR fallback (Node 03/04)
+# Pillow>=10.0                   # image pre-processing for OCR
+# pandas>=2.0                    # lab trend / report comparison (Node 07)
+# numpy>=1.26
+# gTTS>=2.5                      # lightweight TTS fallback (Node 06)
+# edge-tts>=6.1                  # natural neural TTS (Node 06)
+# SQLAlchemy>=2.0                # PostgreSQL ORM (Node 09 EHR ingestion)
+# psycopg[binary]>=3.1           # PostgreSQL driver
