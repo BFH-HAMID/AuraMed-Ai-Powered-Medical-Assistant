@@ -1,0 +1,120 @@
+{
+  "version": "1.0.0",
+  "description": "Red-flag symptoms for emergency triage (Node 02). Bengali aliases support dialectal spelling variants.",
+  "red_flags": [
+    {
+      "id": "chest_pain",
+      "keywords_en": ["chest pain", "chest pressure", "crushing chest", "left arm pain", "sweating with chest", "heart attack"],
+      "keywords_bn": ["বুকে ব্যথা", "বুকে চাপ", "বুক ব্যথা", "বুকের ব্যথা", "হার্ট অ্যাটাক", "বুকে কষ্ট"],
+      "possible": ["acute coronary syndrome", "myocardial infarction"],
+      "first_aid": "chest_pain",
+      "message_en": "Possible heart attack. Call emergency services now. Chew aspirin 300 mg only if not allergic AND a dispatcher/doctor advises. Keep at rest, semi-upright.",
+      "message_bn": "সম্ভাব্য হার্ট অ্যাটাক। এখনই জরুরি সেবায় কল করুন। অ্যালার্জি না থাকলে এবং চিকিৎসক/জরুরি কর্মীর পরামর্শে ৩০০ মিগ্রা অ্যাসপিরিন চিবিয়ে খান। রোগীকে বিশ্রামে আধা-বসা অবস্থায় রাখুন।"
+    },
+    {
+      "id": "stroke_signs",
+      "keywords_en": ["face droop", "facial droop", "slurred speech", "weakness one side", "one-sided weakness", "sudden numbness", "can't speak", "stroke"],
+      "keywords_bn": ["মুখ বেঁকে", "মুখ বাঁকা", "হাত-পা অবশ", "এক পাশ অবশ", "কথা জড়ানো", "কথা বলতে পারছি না", "স্ট্রোক"],
+      "possible": ["acute stroke (FAST)"],
+      "first_aid": "stroke",
+      "message_en": "Possible STROKE. Time is brain — call emergency services immediately. Note the exact time symptoms started. Do not give food/drink/medicine.",
+      "message_bn": "সম্ভাব্য স্ট্রোক। প্রতি মিনিট গুরুত্বপূর্ণ — অবিলম্বে জরুরি সেবায় কল করুন। লক্ষণ শুরুর সঠিক সময় মনে রাখুন। কোনো খাবার, পানি বা ওষুধ দেবেন না।"
+    },
+    {
+      "id": "breathing",
+      "keywords_en": ["can't breathe", "severe breathlessness", "gasping", "blue lips", "struggling to breathe", "choking", "windpipe"],
+      "keywords_bn": ["শ্বাসকষ্ট", "নিশ্বাস নিতে পারছি না", "ঠোঁট নীল", "শ্বাস নিতে কষ্ট", "দম বন্ধ", "শ্বাস বন্ধ"],
+      "possible": ["airway compromise", "severe asthma", "anaphylaxis", "choking"],
+      "first_aid": "choking_breathing",
+      "message_en": "Severe breathing difficulty is an emergency. Call emergency services now. If choking and cannot cough/speak, begin abdominal thrusts (Heimlich).",
+      "message_bn": "তীব্র শ্বাসকষ্ট জরুরি অবস্থা। এখনই জরুরি সেবায় কল করুন। শ্বাসরুদ্ধ হয়ে কাশি/কথা বলতে না পারলে পেটে চাপ (Heimlich) দিন।"
+    },
+    {
+      "id": "severe_allergy",
+      "keywords_en": ["anaphylaxis", "throat swelling", "tongue swelling", "hives with breathing trouble", "face swelling after sting", "epipen"],
+      "keywords_bn": ["গলা ফুলে", "মুখ ফুলে", "শরীর ফুলে লাল", "এলার্জি শ্বাসকষ্ট", "মৌমাছি কামড় ফোলা"],
+      "possible": ["anaphylaxis"],
+      "first_aid": "anaphylaxis",
+      "message_en": "Possible severe allergic reaction (anaphylaxis). Use adrenaline auto-injector if available in the outer thigh. Call emergency services; lie flat with legs raised.",
+      "message_bn": "সম্ভাব্য মারাত্মক এলার্জি (অ্যানাফাইল্যাক্সিস)। অ্যাড্রেনালিন পেন থাকলে উরুর বাইরের পেশিতে দিন। জরুরি সেবায় কল করুন; পা উঁচু করে শোয়ান।"
+    },
+    {
+      "id": "severe_bleeding",
+      "keywords_en": ["severe bleeding", "won't stop bleeding", "blood gushing", "deep wound", "cut artery"],
+      "keywords_bn": ["প্রচণ্ড রক্তপাত", "রক্ত বন্ধ হচ্ছে না", "অনেক রক্ত", "গভীর ক্ষত"],
+      "possible": ["hemorrhage", "hypovolemic shock"],
+      "first_aid": "severe_bleeding",
+      "message_en": "Severe bleeding: apply firm direct pressure with clean cloth, do not remove embedded objects, call emergency services. Treat for shock (lie flat, legs raised, keep warm).",
+      "message_bn": "তীব্র রক্তপাত: পরিষ্কার কাপড় দিয়ে শক্ত করে চাপ দিন, গাঁথা বস্তু খুলবেন না, জরুরি সেবায় কল করুন। শক-এর ব্যবস্থা নিন (চিৎ করে শোয়ান, পা উঁচু, উষ্ণ রাখুন)।"
+    },
+    {
+      "id": "unconscious",
+      "keywords_en": ["unconscious", "passed out", "collapsed", "not waking up", "fainted not responding", "coma"],
+      "keywords_bn": ["চেতনা নেই", "জ্ঞান নেই", "অজ্ঞান", "মূর্ছা", "চেতন হচ্ছে না"],
+      "possible": ["unconsciousness — multiple causes"],
+      "first_aid": "unconscious",
+      "message_en": "Unconscious person: check response and breathing. If breathing, place in recovery position; if not, start CPR. Call emergency services now.",
+      "message_bn": "অজ্ঞান রোগী: সাড়া ও শ্বাস পরীক্ষা করুন। শ্বাস থাকলে রিকভারি পজিশনে রাখুন; না থাকলে CPR শুরু করুন। এখনই জরুরি সেবায় কল করুন।"
+    },
+    {
+      "id": "seizure",
+      "keywords_en": ["seizure", "convulsion", "fits", "epileptic attack", "shaking won't stop"],
+      "keywords_bn": ["খিঁচুনি", "মৃগী", "ঝাঁকুনি", "খিঁচুনি ধরেছে"],
+      "possible": ["status epilepticus if >5 min"],
+      "first_aid": "seizure",
+      "message_en": "During a seizure: protect head, clear surroundings, do NOT restrain, do NOT put anything in the mouth. Emergency if >5 minutes, repeated, injury, pregnancy or first seizure.",
+      "message_bn": "খিঁচুনির সময়: মাথা রক্ষা করুন, চারপাশ খালি করুন, চাপে রাখবেন না, মুখে কিছু দেবেন না। ৫ মিনিটের বেশি চললে, বারবার হলে, আঘাত পেলে, গর্ভবতী বা প্রথমবার হলে জরুরি সেবা।"
+    },
+    {
+      "id": "poisoning",
+      "keywords_en": ["poison", "swallowed poison", "overdose", "took too many pills", "pesticide", "insecticide swallowed"],
+      "keywords_bn": ["বিষ", "বিষ খেয়েছে", "ওষুধ বেশি খেয়েছে", "কীটনাশক খেয়েছে"],
+      "possible": ["poisoning / drug overdose"],
+      "first_aid": "poisoning",
+      "message_en": "Suspected poisoning/overdose: call emergency services or poison control NOW. Bring the container. Do NOT induce vomiting unless instructed.",
+      "message_bn": "সন্দেহভাজন বিষ/ওষুধাধিক্য: এখনই জরুরি সেবা বা বিষ নিয়ন্ত্রণ কেন্দ্রে কল করুন। ওষুধের পাত্র সাথে নিন। নির্দেশ ছাড়া বমি করাবেন না।"
+    },
+    {
+      "id": "severe_burn",
+      "keywords_en": ["major burn", "deep burn", "burn on face", "burn large area", "chemical burn", "electric burn"],
+      "keywords_bn": ["পুড়ে গেছে", "গভীর পোড়া", "মুখ পুড়ে", "বিদ্যুৎ পোড়া"],
+      "possible": ["major burns"],
+      "first_aid": "burns",
+      "message_en": "Major/face/chemical/electrical burns are emergencies. Cool with running water 20 min (not ice), remove constricting items, cover with clean cloth, call emergency services.",
+      "message_bn": "বড়/মুখ/রাসায়নিক/বৈদ্যুতিক পোড়া জরুরি। ২০ মিনিট প্রবাহিত পানিতে ঠান্ডা করুন (বরফ নয়), আঁটসাঁট জিনিস সরান, পরিষ্কার কাপড় ঢাকুন, জরুরি সেবায় কল করুন।"
+    },
+    {
+      "id": "pregnant_bleeding",
+      "keywords_en": ["pregnant bleeding", "vaginal bleeding pregnant", "pregnancy severe abdominal pain"],
+      "keywords_bn": ["গর্ভাবস্থায় রক্ত", "গর্ভবতী রক্তপাত", "গর্ভাবস্থায় প্রচণ্ড পেট ব্যথা"],
+      "possible": ["obstetric emergency"],
+      "first_aid": "pregnancy_emergency",
+      "message_en": "Bleeding or severe abdominal pain in pregnancy is an emergency — go to an obstetric facility now.",
+      "message_bn": "গর্ভাবস্থায় রক্তপাত বা তীব্র পেট ব্যথা জরুরি — এখনই প্রসূতি সেবা কেন্দ্রে যান।"
+    },
+    {
+      "id": "cholera_like",
+      "keywords_en": ["profuse watery diarrhea", "rice water stool", "dehydrated collapsing", "cholera"],
+      "keywords_bn": ["পাতলা পায়খানা পানির মতো", "ধান-মাড় পায়খানা", "ডিহাইড্রেশন", "কলেরা"],
+      "possible": ["severe dehydration / cholera"],
+      "first_aid": "dehydration",
+      "message_en": "Profuse watery diarrhea with dehydration: start ORS immediately, zinc for children, and seek urgent care — IV fluids may be needed.",
+      "message_bn": "প্রচণ্ড পাতলা পায়খানা ও পানিশূন্যতা: সঙ্গে সঙ্গে ORS খাওয়ান, শিশুদের জিংক, দ্রুত সেবা নিন — শিরায় স্যালাইন লাগতে পারে।"
+    },
+    {
+      "id": "diabetic_emergency",
+      "keywords_en": ["very low sugar", "hypoglycemia unconscious", "sweating confusion diabetic", "diabetic not responding"],
+      "keywords_bn": ["সুগার কম", "ডায়াবেটিস রোগী অজ্ঞান", "ঘাম ও বিভ্রান্ত ডায়াবেটিস"],
+      "possible": ["hypoglycemia", "hyperglycemic crisis"],
+      "first_aid": "hypoglycemia",
+      "message_en": "Known diabetic with sweating/tremor/confusion: give 15 g fast sugar if awake (sugar water/juice), repeat in 15 min; if unconscious, do NOT give anything by mouth — call emergency services.",
+      "message_bn": "ডায়াবেটিস রোগীর ঘাম/কাঁপুনি/বিভ্রান্তি: সচেতন থাকলে ১৫ গ্রাম চিনি/গ্লুকোজ দিন, ১৫ মিনিট পর আবার দিন; অজ্ঞান হলে মুখে কিছু দেবেন না — জরুরি সেবায় কল করুন।"
+    }
+  ],
+  "yellow_flags": {
+    "keywords_en": ["high fever 3 days", "persistent vomiting", "blood in stool", "black stool", "sudden severe headache", "jaundice", "infant lethargy", "suicidal", "self-harm"],
+    "keywords_bn": ["তিন দিন ধরে জ্বর", "বারবার বমি", "পায়খানায় রক্ত", "কালো পায়খানা", "হঠাৎ প্রচণ্ড মাথাব্যথা", "জন্ডিস", "শিশু ঝিমায়", "আত্মহত্যার চিন্তা"],
+    "message_en": "Urgent warning sign — please seek medical care today.",
+    "message_bn": "জরুরি সতর্কতা সংকেত — আজই চিকিৎসা সেবা নিন।"
+  }
+}

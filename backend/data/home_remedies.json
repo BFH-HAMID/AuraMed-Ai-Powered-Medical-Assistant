@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "description": "Node 23 — Verified home remedies & traditional tips. Safe, non-pharmacological measures only. Each entry lists evidence notes and explicit stop-advice; NOT for red-flag symptoms.",
+  "remedies": {
+    "common_cold": {
+      "title_en": "Common cold / mild cough",
+      "title_bn": "সর্দি / হালকা কাশি",
+      "tips_en": [
+        "Warm fluids: water, soup, or honey-lemon water (honey only for age >1 year).",
+        "Saline (salt-water) gargle 3-4 times/day for sore throat.",
+        "Steam inhalation for congestion; be careful with hot water to avoid burns.",
+        "Rest and extra fluids; ventilate the room."
+      ],
+      "tips_bn": [
+        "উষ্ণ পানীয়: পানি, স্যুপ বা মধু-লেবু পানি (মধু শুধু ১ বছরের বেশি বয়সীদের জন্য)।",
+        "গলাব্যথায় দিনে ৩-৪ বার লবণ-পানির গার্গল।",
+        "নাক বন্ধ থাকলে ভাপ নিন; পোড়া এড়াতে গরম পানি নিয়ে সতর্ক থাকুন।",
+        "বিশ্রাম ও বেশি তরল; ঘরে বাতাস চলাচল রাখুন।"
+      ],
+      "stop_if_en": "High fever >3 days, breathing difficulty, chest pain, blood in sputum, or symptoms >10 days → see a doctor.",
+      "stop_if_bn": "৩ দিনের বেশি জ্বর, শ্বাসকষ্ট, বুকে ব্যথা, কফে রক্ত বা ১০ দিনের বেশি সর্দি → চিকিৎসক দেখান।"
+    },
+    "mild_fever": {
+      "title_en": "Mild fever (adult, alert)",
+      "title_bn": "হালকা জ্বর (প্রাপ্তবয়স্ক, সচেতন)",
+      "tips_en": [
+        "Light clothing; room comfortably cool; lukewarm sponging if very uncomfortable.",
+        "Plenty of oral fluids (water, oral saline, coconut water).",
+        "Paracetamol per label if needed; do NOT exceed the daily maximum.",
+        "Monitor temperature 2-3 times daily and write it down."
+      ],
+      "tips_bn": [
+        "হালকা পোশাক; ঘর আরামদায়ক ঠান্ডা; অস্বস্তি হলে কুসুম গরম পানিতে মোছা।",
+        "প্রচুর তরল (পানি, খাবার স্যালাইন, ডাবের পানি)।",
+        "প্রয়োজনে নির্দেশমতো প্যারাসিটামল; দৈনিক সর্বোচ্চ মাত্রার বেশি নয়।",
+        "দিনে ২-৩ বার তাপমাত্রা মেপে লিখে রাখুন।"
+      ],
+      "stop_if_en": "Fever ≥39°C lasting >48h, confusion, stiff neck, rash that doesn't fade, pregnancy, or infant <3 months with fever → urgent care.",
+      "stop_if_bn": "৪৮ ঘণ্টার বেশি ৩৯°C জ্বর, বিভ্রান্তি, ঘাড় শক্ত, চাপে না-মোছা লালচে দাগ, গর্ভাবস্থা বা ৩ মাসের কম বয়সী শিশুর জ্বর → জরুরি সেবা।"
+    },
+    "mild_diarrhea": {
+      "title_en": "Mild diarrhea (no red flags)",
+      "title_bn": "হালকা ডায়রিয়া (সতর্কতা সংকেত ছাড়া)",
+      "tips_en": [
+        "ORS after every loose stool — this is the most important measure.",
+        "Continue normal food: rice, banana, dal, potatoes; avoid very oily food temporarily.",
+        "Wash hands with soap before preparing food and after the toilet.",
+        "Zinc supplement for children under 5 per national protocol (10-14 days)."
+      ],
+      "tips_bn": [
+        "প্রতিবার পাতলা পায়খানার পর ORS — এটিই সবচেয়ে গুরুত্বপূর্ণ।",
+        "স্বাভাবিক খাবার চালিয়ে যান: ভাত, কলা, ডাল, আলু; চিকন/তেলযুক্ত খাবার সাময়িকভাবে এড়ান।",
+        "খাবার তৈরির আগে ও টয়লেটের পর সাবান দিয়ে হাত ধুয়ে নিন।",
+        "৫ বছরের কম শিশুদের জাতীয় নিয়মে জিংক (১০-১৪ দিন)।"
+      ],
+      "stop_if_en": "Blood in stool, black stool, high fever, severe thirst, no urine 6-8h, sunken eyes, or unable to drink → urgent care.",
+      "stop_if_bn": "পায়খানায় রক্ত, কালো পায়খানা, প্রচণ্ড জ্বর, প্রচণ্ড তৃষ্ণা, ৬-৮ ঘণ্টা প্রস্রাব না হওয়া, চোখ বসে যাওয়া বা পানি খেতে না পারা → জরুরি সেবা।"
+    },
+    "constipation": {
+      "title_en": "Occasional constipation",
+      "title_bn": "মাঝে মাঝে কোষ্ঠকাঠিন্য",
+      "tips_en": [
+        "Gradually increase fiber: vegetables, fruits (papaya, guava), whole grains, pulses.",
+        "Drink 6-8 glasses of water daily; warm water in the morning helps.",
+        "Daily physical activity / walking; use the toilet when the urge comes.",
+        "Avoid regular stimulant laxatives without medical advice."
+      ],
+      "tips_bn": [
+        "আস্তে আস্তে আঁশ বাড়ান: শাকসবজি, ফল (পেঁপে, পেয়ারা), লাল চালের ভাত, ডাল।",
+        "দিনে ৬-৮ গ্লাস পানি; সকালে উষ্ণ পানি উপকারী।",
+        "প্রতিদিন হাঁটাচলা/ব্যায়াম; চাপ অনুভূত হলে টয়লেটে যান।",
+        "চিকিৎসকের পরামর্শ ছাড়া নিয়মিত জোরালো রেচক ওষুধ খাবেন না।"
+      ],
+      "stop_if_en": "Blood in stool, black stool, severe abdominal pain, vomiting, weight loss, or >2 weeks of symptoms → see a doctor.",
+      "stop_if_bn": "পায়খানায় রক্ত, কালো পায়খানা, তীব্র পেটব্যথা, বমি, ওজন কমা বা ২ সপ্তাহের বেশি সমস্যা → চিকিৎসক দেখান।"
+    },
+    "mild_headache": {
+      "title_en": "Tension-type mild headache",
+      "title_bn": "হালকা টেনশন-টাইপ মাথাব্যথা",
+      "tips_en": [
+        "Rest in a quiet, dimly lit room; regular sleep and meals.",
+        "Hydrate; avoid skipping meals and limit excess caffeine.",
+        "Gentle neck/shoulder stretches; screen-time breaks every 30-45 minutes.",
+        "Paracetamol per label if needed (mind other medicines containing paracetamol)."
+      ],
+      "tips_bn": [
+        "শান্ত, আধা-অন্ধকার ঘরে বিশ্রাম; নিয়মিত ঘুম ও খাবার।",
+        "পানি পান করুন; খাবার বাদ দেবেন না, অতিরিক্ত ক্যাফেইন সীমিত করুন।",
+        "ঘাড়/কাঁধের হালকা ব্যায়াম; প্রতি ৩০-৪৫ মিনিট পর পর্দা থেকে বিরতি।",
+        "প্রয়োজনে নির্দেশমতো প্যারাসিটামল (অন্য প্যারাসিটামল-যুক্ত ওষুধ খেয়াল রাখুন)।"
+      ],
+      "stop_if_en": "Sudden worst-ever headache, weakness/numbness, speech or vision change, fever with stiff neck, or after head injury → emergency.",
+      "stop_if_bn": "হঠাৎ জীবনের সবচেয়ে প্রচণ্ড মাথাব্যথা, দুর্বলতা/অবশ ভাব, কথা/দৃষ্টিতে পরিবর্তন, ঘাড় শক্তসহ জ্বর বা মাথায় আঘাতের পর → জরুরি সেবা।"
+    },
+    "acidity_mild": {
+      "title_en": "Mild acidity / heartburn",
+      "title_bn": "হালকা অ্যাসিডিটি / বুক জ্বালা",
+      "tips_en": [
+        "Smaller, more frequent meals; avoid lying down for 2-3 hours after eating.",
+        "Reduce triggers: very spicy/fried food, excess tea/coffee, citrus on empty stomach.",
+        "Raise the head of the bed; maintain healthy weight.",
+        "A glass of cold plain milk or water may give temporary relief."
+      ],
+      "tips_bn": [
+        "অল্প পরিমাণে বারবার খান; খাওয়ার ২-৩ ঘণ্টা শুয়ে পড়বেন না।",
+        "ট্রিগার কমান: খুব ঝাল/ভাজা, বেশি চা/কফি, খালি পেটে টক ফল।",
+        "বিছানার মাথার দিক উঁচু রাখুন; স্বাস্থ্যকর ওজন বজায় রাখুন।",
+        "এক গ্লাস ঠান্ডা দুধ বা পানি সাময়িক আরাম দিতে পারে।"
+      ],
+      "stop_if_en": "Chest pressure/pain radiating to arm or jaw, black stools, vomiting blood, trouble swallowing, or weight loss → urgent care.",
+      "stop_if_bn": "বুকে চাপ/ব্যথা বাহু বা চোয়ালে ছড়ালে, কালো পায়খানা, রক্ত বমি, গিলতে কষ্ট বা ওজন কমা → জরুরি সেবা।"
+    }
+  }
+}

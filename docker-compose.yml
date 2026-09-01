@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------------------
+# AuraMed — local deployment stack (API + PostgreSQL + Redis)
+#   docker compose up --build
+# ---------------------------------------------------------------------------
+version: "3.9"
+
+services:
+  auramed-api:
+    build: .
+    container_name: auramed-api
+    ports:
+      - "8000:8000"
+    environment:
+      AURAMED_ENV: production
+      AURAMED_HOST: 0.0.0.0
+      AURAMED_PORT: "8000"
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://auramed:auramed@postgres:5432/auramed
+      AURAMED_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data            # audit trail + cache persist on host
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: auramed-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: auramed-postgres
+    environment:
+      POSTGRES_USER: auramed
+      POSTGRES_PASSWORD: auramed
+      POSTGRES_DB: auramed
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U auramed"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

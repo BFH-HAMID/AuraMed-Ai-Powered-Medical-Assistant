@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "description": "Node 19 — Emergency Proximity Routing seed directory. Replace/extend via the national facility registry API at deployment. Coordinates use [longitude, latitude] (GeoJSON order) with Dhaka, Bangladesh sample points.",
+  "facilities": [
+    {"id": "fac-001", "name": "Dhaka Medical College Hospital", "name_bn": "ঢাকা মেডিকেল কলেজ হাসপাতাল", "type": "emergency_department", "lat": 23.7178, "lon": 90.3979, "phone": "+880-2-55165087", "has_emergency": true, "has_ambulance": true, "specialties": ["cardiology", "stroke", "trauma", "obstetrics"], "open_247": true},
+    {"id": "fac-002", "name": "Shaheed Suhrawardy Medical College Hospital", "name_bn": "শহীদ সোহরাওয়ার্দী মেডিকেল কলেজ হাসপাতাল", "type": "emergency_department", "lat": 23.7694, "lon": 90.3705, "phone": "+880-2-55110326", "has_emergency": true, "has_ambulance": true, "specialties": ["cardiology", "neonatology"], "open_247": true},
+    {"id": "fac-003", "name": "National Institute of Cardiovascular Diseases (NICVD)", "name_bn": "জাতীয় হৃদরোগ ইনস্টিটিউট", "type": "specialist_center", "lat": 23.7292, "lon": 90.3858, "phone": "+880-2-55137345", "has_emergency": true, "has_ambulance": true, "specialties": ["cardiology", "cardiac_surgery"], "open_247": true},
+    {"id": "fac-004", "name": "National Institute of Neurosciences & Hospital", "name_bn": "জাতীয় স্নায়ুরোগ ইনস্টিটিউট ও হাসপাতাল", "type": "specialist_center", "lat": 23.7686, "lon": 90.3742, "phone": "+880-2-8034100", "has_emergency": true, "has_ambulance": false, "specialties": ["stroke", "neurology", "neurosurgery"], "open_247": true},
+    {"id": "fac-005", "name": "Dhaka Shishu (Children) Hospital", "name_bn": "ঢাকা শিশু হাসপাতাল", "type": "specialist_center", "lat": 23.7461, "lon": 90.3750, "phone": "+880-2-9013801", "has_emergency": true, "has_ambulance": true, "specialties": ["pediatrics", "neonatology"], "open_247": true},
+    {"id": "fac-006", "name": "Upazila Health Complex — Savar", "name_bn": "উপজেলা স্বাস্থ্য কমপ্লেক্স — সাভার", "type": "upazila_health_complex", "lat": 23.8500, "lon": 90.2667, "phone": "+880-1713333333", "has_emergency": true, "has_ambulance": true, "specialties": ["general", "obstetrics"], "open_247": true},
+    {"id": "amb-001", "name": "National Emergency Ambulance Service", "name_bn": "জাতীয় জরুরি অ্যাম্বুলেন্স সেবা", "type": "ambulance", "lat": 23.7806, "lon": 90.4067, "phone": "999", "has_emergency": false, "has_ambulance": true, "specialties": [], "open_247": true},
+    {"id": "amb-002", "name": "Fire Service & Civil Defence Ambulance", "name_bn": "ফায়ার সার্ভিস ও সিভিল ডিফেন্স অ্যাম্বুলেন্স", "type": "ambulance", "lat": 23.7300, "lon": 90.4100, "phone": "199", "has_emergency": false, "has_ambulance": true, "specialties": [], "open_247": true}
+  ]
+}
