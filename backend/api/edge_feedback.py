@@ -30,8 +30,16 @@ async def symptom_tracker(payload: dict):
 @router.post("/23/home-remedies")
 async def home_remedies(payload: dict):
     data = remedies_engine.run(payload)
+    alerts: list[dict] = []
+    if not data.get("served"):
+        # Home care withheld — say so explicitly (red-flag refusal vs no entry).
+        alerts.append({
+            "home_care_withheld": True,
+            "reason": "red_flag" if data.get("risk_level") == "red" else "no_verified_entry",
+        })
     return ok(23, "Verified Home Remedies & Traditional Tips", data,
-              risk_level=data.get("risk_level"), language=payload.get("language", "en"))
+              risk_level=data.get("risk_level"), alerts=alerts,
+              language=payload.get("language", "en"))
 
 
 @router.post("/24/feedback")

@@ -44,6 +44,8 @@ class RemediesEngine(BaseNode):
             return {
                 "served": False,
                 "risk_level": "red",
+                "seek_emergency_care": True,
+                "escalate_to_clinician": True,
                 "message_en": "These symptoms may be an emergency — do NOT rely on home care. Call 999 or go to the nearest emergency department.",
                 "message_bn": "এই লক্ষণ জরুরি হতে পারে — ঘরোয়া চিকিৎসায় নির্ভর করবেন না। ৯৯৯-এ কল করুন বা নিকটস্থ জরুরি বিভাগে যান।",
                 "matched_red_flags": [h["id"] for h in red_hits],
@@ -58,7 +60,10 @@ class RemediesEngine(BaseNode):
         if not best or best not in self._data:
             return {
                 "served": False,
-                "risk_level": "unknown",
+                # No verified entry ⇒ no risk assertion (never invent GREEN, and
+                # "unknown" is not part of the RED/YELLOW/GREEN contract).
+                "risk_level": None,
+                "escalate_to_clinician": True,
                 "message_en": "No verified home-care entry matched. Please consult a clinician.",
                 "message_bn": "কোনো যাচাইকৃত ঘরোয়া পরামর্শ মেলেনি। অনুগ্রহ করে চিকিৎসকের সাথে পরামর্শ করুন।",
             }
@@ -77,9 +82,10 @@ class RemediesEngine(BaseNode):
         return result
 
     def run(self, payload: dict, patient: PatientContext | None = None) -> dict:
-        return self.suggest(
-            payload.get("complaint", ""), payload.get("language", "en")
-        )
+        # ``complaint`` is the documented key; ``symptom`` is accepted as an
+        # alias so a client using the sibling nodes' wording is not penalised.
+        complaint = payload.get("complaint") or payload.get("symptom") or ""
+        return self.suggest(complaint, payload.get("language", "en"))
 
 
 remedies_engine = RemediesEngine()

@@ -1,5 +1,7 @@
 # 🏥 AuraMed — AI-Powered Medical Assistant
 
+[![CI](https://github.com/BFH-HAMID/AuraMed-Ai-Powered-Medical-Assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/BFH-HAMID/AuraMed-Ai-Powered-Medical-Assistant/actions/workflows/ci.yml)
+
 **A 26-point integrated AI medical architecture for localized, edge-deployable
 clinical decision support — with Bengali (বাংলা) language support, speech
 processing, handwriting OCR, emergency triage and full offline resilience.**
@@ -86,6 +88,35 @@ uvicorn backend.main:app --host 0.0.0.0 --port 8000
 * Health → http://localhost:8000/health
 * Docker stack (API + PostgreSQL + Redis) → `docker compose up --build`
 
+### 🖥️ Web app
+
+Open **http://localhost:8000/** in a browser (the same URL serves JSON to API
+clients — browsers sending `Accept: text/html` get the app).
+
+* Animated **AI Brain** hero (canvas neural network, honours `prefers-reduced-motion`)
+* 4-step wizard: patient details → symptoms + live triage → diagnosis + medicines +
+  drug-safety check → **report**
+* Bilingual UI (বাংলা ⇄ English), BMI live-calc, RED/YELLOW/GREEN colour coding
+* **Downloadable patient report** — patient identity (name, age, weight, height,
+  BMI, allergies), diagnosis, medicines with dosing rules (`1+0+1` → "সকালে 1টি ·
+  রাতে 1টি", when to take, duration, warnings), advice for the patient, diet plan,
+  recommended tests and risk score. Served as self-contained printable HTML;
+  **Print / Save as PDF** gives a clean A4 PDF with correct Bangla rendering.
+
+```bash
+curl -X POST http://localhost:8000/api/v1/report/patient \
+  -H 'Content-Type: application/json' \
+  -d '{"patient":{"name":"রহিমা বেগম","age_years":54,"sex":"female","weight_kg":68,"height_cm":155,
+                   "allergies":["penicillin"],"conditions":["hypertension"]},
+       "symptoms_text":"মাথা ঘোরা, ঘাড়ে ব্যথা","diagnosis":"hypertension","diagnosis_key":"hypertension",
+       "medications":[{"name":"metformin","dose":"500 mg","frequency":"1+0+1","duration":"30 days"}],
+       "language":"bn"}'
+
+# same report as a downloadable, print-ready file
+curl -X POST http://localhost:8000/api/v1/report/patient/download \
+  -H 'Content-Type: application/json' -d @report.json -OJ
+```
+
 ### Try it
 
 ```bash
@@ -107,7 +138,7 @@ curl -X POST http://localhost:8000/api/v1/08/consensus \
 ```
 
 ```bash
-python3 -m pytest tests/      # 38 tests, all green
+python3 -m pytest tests/      # 159 tests, all green
 ```
 
 ---
@@ -167,7 +198,8 @@ backend/
 ├── config.py                    # env-driven settings
 ├── core/                        # disclaimer · i18n (bn/en) · schemas · audit (Node 26)
 │                                #   security/crypto (Node 16) · edge cache (Node 21)
-├── api/                         # routers for the 5 architecture layers
+│                                #   report_pack + report_html (downloadable report)
+├── api/                         # routers for the 5 architecture layers + report pack
 └── nodes/
     ├── node_02_triage/          # production triage engine + bilingual red-flag rules
     ├── node_05_drug_safety/     # production drug safety engine + KB
@@ -179,7 +211,10 @@ backend/
 data/                            # clinical knowledge JSON (drug KB, red flags,
                                  #   first aid, home remedies, facilities)
 docs/                            # architecture (Mermaid) + engineering + API + deployment
-tests/                           # 38 pytest tests (nodes 05, 08, 02 + API contract)
+tests/                           # 159 pytest tests — nodes 02/05/08/23, the
+                                 #   report pack + a whole-gateway contract suite
+frontend/                        # web UI (vanilla HTML/CSS/JS, no build step)
+                                 #   index.html · css/styles.css · js/app.js · js/brain.js
 ```
 
 ---
@@ -189,7 +224,8 @@ tests/                           # 38 pytest tests (nodes 05, 08, 02 + API contr
 Python 3.11 · **FastAPI** · **Pydantic v2** · Uvicorn · httpx · Redis ·
 PostgreSQL (SQLAlchemy optional) · `cryptography` (AES-256-GCM) ·
 **PyTorch/Transformers + TrOCR** (OCR) · **Whisper/VOSK** (STT) ·
-Tesseract (edge OCR) · Docker Compose.
+Tesseract (edge OCR) · Docker Compose ·
+Vanilla JS/Canvas web UI (no build step).
 
 ## 🔐 Safety & compliance guardrails
 

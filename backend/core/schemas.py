@@ -5,7 +5,7 @@ import uuid
 from enum import Enum
 from typing import Any, Generic, Literal, TypeVar
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from backend.core.disclaimer import get_disclaimer
 
@@ -21,6 +21,39 @@ class RiskLevel(str, Enum):
     RED = "red"        # life-threatening — immediate emergency care
     YELLOW = "yellow"  # urgent — care within hours
     GREEN = "green"    # low-risk — routine / conservative management
+
+
+# Labels a node may emit when it has *not* risk-stratified the case. They are
+# deliberately NOT part of the RED/YELLOW/GREEN triage contract, so the gateway
+# maps them to "no risk assertion" instead of rejecting the whole response.
+_NON_RISK_TOKENS = frozenset({
+    "", "none", "null", "unknown", "n/a", "na", "unassessed", "not_assessed", "unspecified",
+})
+
+
+def coerce_risk_level(value: Any) -> RiskLevel | None:
+    """Normalize any node-supplied risk label onto the triage contract.
+
+    Safety rationale: a node emitting an out-of-contract label ("unknown" from
+    Node 23's no-match path) used to raise a Pydantic ``ValidationError`` inside
+    the shared envelope, which the gateway middleware turned into **HTTP 500** —
+    a patient asking about a sore throat got an internal error instead of the
+    "no verified entry, see a clinician" answer the node had already produced.
+    An unmappable label therefore degrades to ``None`` ("no risk assertion");
+    callers are told through the ``risk_level_unmapped`` alert added in
+    :func:`ok`, so nothing is dropped silently.
+    """
+    if value is None or isinstance(value, RiskLevel):
+        return value
+    if isinstance(value, str):
+        token = value.strip().lower()
+        if token in _NON_RISK_TOKENS:
+            return None
+        try:
+            return RiskLevel(token)
+        except ValueError:
+            return None
+    return None
 
 
 class Severity(str, Enum):
@@ -73,6 +106,12 @@ class AuraMedResponse(BaseModel, Generic[T]):
     offline: bool = False
     language: Language = "en"
 
+    @field_validator("risk_level", mode="before")
+    @classmethod
+    def _risk_level_on_contract(cls, value: Any) -> RiskLevel | None:
+        """Never let an off-contract node label break the mandatory envelope."""
+        return coerce_risk_level(value)
+
     def model_post_init(self, __context: Any) -> None:
         # Never allow an empty disclaimer to leave the service.
         if not self.disclaimer:
@@ -84,20 +123,26 @@ def ok(
     node_name: str,
     data: Any = None,
     *,
-    risk_level: RiskLevel | None = None,
+    risk_level: Any = None,
     confidence: float = 0.0,
     alerts: list[dict[str, Any]] | None = None,
     language: Language = "en",
     offline: bool = False,
 ) -> dict[str, Any]:
     """Convenience builder for a success envelope (plain dict for FastAPI)."""
+    normalized_risk = coerce_risk_level(risk_level)
+    envelope_alerts = list(alerts or [])
+    if risk_level is not None and normalized_risk is None:
+        # The node asserted a label outside RED/YELLOW/GREEN — surface it rather
+        # than hiding the fact that no risk stratification was produced.
+        envelope_alerts.append({"risk_level_unmapped": str(risk_level)})
     payload = AuraMedResponse(
         node=node,
         node_name=node_name,
         data=data if data is not None else {},
-        risk_level=risk_level,
+        risk_level=normalized_risk,
         confidence=confidence,
-        alerts=alerts or [],
+        alerts=envelope_alerts,
         language=language,
         offline=offline,
     )

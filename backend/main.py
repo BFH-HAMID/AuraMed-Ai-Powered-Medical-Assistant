@@ -17,15 +17,25 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from backend import __version__
-from backend.api import core_pipeline, diagnostics, edge_feedback, input_processing, security_infra
-from backend.config import settings
+from backend.api import (
+    core_pipeline,
+    diagnostics,
+    edge_feedback,
+    input_processing,
+    patient_report,
+    security_infra,
+)
+from backend.config import REPO_ROOT, settings
 from backend.core.cache import cache
 from backend.core.disclaimer import DISCLAIMER_EN
 from backend.nodes import registry_snapshot
 from backend.nodes import registry as _registry  # noqa: F401  (registers all 26 nodes)
+
+FRONTEND_DIR = REPO_ROOT / "frontend"
 
 logger = logging.getLogger("auramed")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -93,17 +103,33 @@ app.include_router(core_pipeline.router)
 app.include_router(diagnostics.router)
 app.include_router(security_infra.router)
 app.include_router(edge_feedback.router)
+app.include_router(patient_report.router)
+
+# Patient-facing web UI (no build step — plain HTML/CSS/JS).
+if FRONTEND_DIR.is_dir():
+    app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
 
 # ---------------------------------------------------------------------------
 # Root / health
 # ---------------------------------------------------------------------------
 @app.get("/", tags=["meta"])
-async def root():
+async def root(request: Request):
+    """Browsers get the web app; API clients get the JSON node registry.
+
+    Content negotiation keeps ``GET /`` backwards compatible for machines while
+    giving a human opening the service in a browser the actual home page.
+    """
+    if "text/html" in (request.headers.get("accept") or ""):
+        index = FRONTEND_DIR / "index.html"
+        if index.is_file():
+            return FileResponse(index)
     return {
         "service": "AuraMed — AI-Powered Medical Assistant",
         "version": __version__,
         "language_support": ["en", "bn"],
+        # Browsers asking for text/html on this same URL get the web app.
+        "web_ui": "/" if (FRONTEND_DIR / "index.html").is_file() else None,
         "nodes": registry_snapshot(),
         "docs": "/docs",
         "openapi": "/openapi.json",
@@ -119,6 +145,8 @@ async def health():
         "offline_mode": settings.offline_mode,
         "environment": settings.env,
         "knowledge_cache": cache.warm_knowledge_bases(),
+        # Safety directive #2 applies to meta endpoints too, not only node routes.
+        "disclaimer": DISCLAIMER_EN,
     }
 
 
