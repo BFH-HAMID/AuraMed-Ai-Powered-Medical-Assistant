@@ -119,6 +119,8 @@ async def health():
         "offline_mode": settings.offline_mode,
         "environment": settings.env,
         "knowledge_cache": cache.warm_knowledge_bases(),
+        # Safety directive #2 applies to meta endpoints too, not only node routes.
+        "disclaimer": DISCLAIMER_EN,
     }
 
 

@@ -117,6 +117,14 @@ curl -X POST .../api/v1/22/symptom-tracker -d '{"step_id":"severity","answer":"s
 
 * Unknown drugs / low OCR confidence never produce silent failure — they
   return explicit verification findings.
+* `risk_level` at the envelope level is always `red` / `yellow` / `green` or
+  `null` — a node that has not risk-stratified the case returns `null` (and, if
+  it asserted a label outside the contract, the gateway echoes it back as a
+  `{"risk_level_unmapped": ...}` alert instead of failing the request).
+* Withheld advice is explicit: Node 23 returns
+  `{"served": false, "risk_level": null|"red", "escalate_to_clinician": true}`
+  plus a `{"home_care_withheld": true, "reason": "no_verified_entry"|"red_flag"}`
+  alert.
 * RED triage is surfaced at the envelope level (`risk_level:"red"`) for easy
   UI gating/coloring and SMS/voice alerts on the edge client.
 * Audit endpoints require `Authorization: Bearer $AURAMED_AUDIT_TOKEN`.

@@ -1,5 +1,7 @@
 # 🏥 AuraMed — AI-Powered Medical Assistant
 
+[![CI](https://github.com/BFH-HAMID/AuraMed-Ai-Powered-Medical-Assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/BFH-HAMID/AuraMed-Ai-Powered-Medical-Assistant/actions/workflows/ci.yml)
+
 **A 26-point integrated AI medical architecture for localized, edge-deployable
 clinical decision support — with Bengali (বাংলা) language support, speech
 processing, handwriting OCR, emergency triage and full offline resilience.**
@@ -107,7 +109,7 @@ curl -X POST http://localhost:8000/api/v1/08/consensus \
 ```
 
 ```bash
-python3 -m pytest tests/      # 38 tests, all green
+python3 -m pytest tests/      # 131 tests, all green
 ```
 
 ---
@@ -179,7 +181,8 @@ backend/
 data/                            # clinical knowledge JSON (drug KB, red flags,
                                  #   first aid, home remedies, facilities)
 docs/                            # architecture (Mermaid) + engineering + API + deployment
-tests/                           # 38 pytest tests (nodes 05, 08, 02 + API contract)
+tests/                           # 131 pytest tests — nodes 02/05/08/23 + a
+                                 #   whole-gateway contract suite (every route)
 ```
 
 ---
