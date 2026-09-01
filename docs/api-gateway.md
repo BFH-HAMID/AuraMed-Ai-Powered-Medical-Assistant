@@ -88,7 +88,27 @@ current_medications, renal_egfr, pregnant, language…), `RiskLevel`
 | 26 | `GET /api/v1/26/audit/verify` | **Bearer audit token** | hash-chain integrity report |
 | 26 | `GET /api/v1/26/audit/events?limit=` | **Bearer audit token** | recent immutable audit entries |
 
-Meta: `GET /` (node registry), `GET /health` (liveness + knowledge cache).
+### Patient report pack (composed document)
+
+| Route | Body | Returns |
+|---|---|---|
+| `POST /api/v1/report/patient` | `{patient, symptoms_text, vitals, diagnosis, diagnosis_key, medications[], language}` | the report as JSON inside the standard envelope |
+| `POST /api/v1/report/patient/download` | same | self-contained printable **HTML** file (`Content-Disposition: attachment`) |
+
+The pack is assembled from Nodes 02, 05, 09, 11, 12, 13, 14, 15, 17 and 18 and
+always contains: patient identity (name, age, sex, weight, height, BMI,
+allergies, conditions), diagnosis + plain-language explanation, medicines with
+dosing rules (frequency shorthand expanded, class-based timing, safety
+warnings), advice for the patient, diet plan, recommended tests and risk
+scores. Every report carries the disclaimer, a `requires_physician_review`
+flag, a physician signature block and a `AMR-YYYYMMDD-XXXXXXXX` report id that
+is written to the Node 26 audit trail.
+
+`patient.name` is required; the download filename is ASCII-only so no PHI
+leaks into filenames.
+
+Meta: `GET /` (node registry JSON, or the web app for `Accept: text/html`),
+`GET /health` (liveness + knowledge cache), `/static/*` (web UI assets).
 
 ---
 

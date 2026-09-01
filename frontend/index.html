@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AuraMed — AI-Powered Medical Assistant</title>
+<meta name="description" content="AuraMed — 26-node AI medical assistant with Bengali support, emergency triage, drug safety and downloadable patient reports." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230f766e'/%3E%3Cpath d='M6 16h5l2.5-6 4 12 2.5-6h6' stroke='white' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#workspace" data-i18n="skip">মূল কনটেন্টে যান</a>
+
+<!-- ══════════════════════════════ NAV ══════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 16h5l2.6-7 4.2 14 2.6-7H29" />
+        </svg>
+      </span>
+      <span class="brand__text">Aura<span>Med</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="primary">
+      <a href="#home" data-i18n="nav.home">হোম</a>
+      <a href="#workspace" data-i18n="nav.workspace">ওয়ার্কস্পেস</a>
+      <a href="#report" data-i18n="nav.report">রিপোর্ট</a>
+      <a href="#architecture" data-i18n="nav.arch">আর্কিটেকচার</a>
+      <a href="/docs" target="_blank" rel="noopener">API</a>
+    </nav>
+
+    <div class="nav__actions">
+      <div class="lang-switch" role="group" aria-label="language">
+        <button type="button" data-lang="bn" aria-pressed="true">বাংলা</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--primary btn--sm" href="#workspace" data-i18n="nav.start">শুরু করুন</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════ HERO ═════════════════════════════ -->
+<main id="top">
+<section class="hero" id="home">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="orb orb--a"></div>
+    <div class="orb orb--b"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <span class="pill">
+        <span class="pill__dot"></span>
+        <span data-i18n="hero.badge">২৬-নোড ক্লিনিক্যাল এআই ইঞ্জিন · সক্রিয়</span>
+      </span>
+
+      <h1 class="hero__title">
+        <span data-i18n="hero.title1">আপনার স্বাস্থ্যসেবার</span>
+        <span class="grad" data-i18n="hero.title2">এআই সহযাত্রী</span>
+      </h1>
+
+      <p class="hero__sub" data-i18n="hero.sub">
+        বাংলা ভাষায় উপসর্গ বিশ্লেষণ, জরুরি ট্রয়েজ, ঔষধের নিরাপত্তা যাচাই, খাদ্যপরিকল্পনা —
+        সব এক জায়গায়। শেষে ডাউনলোড করুন পূর্ণাঙ্গ রোগীর রিপোর্ট।
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#workspace">
+          <span data-i18n="hero.cta1">রিপোর্ট তৈরি করুন</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button type="button" class="btn btn--ghost" id="demoBtn" data-i18n="hero.cta2">ডেমো ডেটা দেখুন</button>
+      </div>
+
+      <dl class="hero__stats">
+        <div><dt>26</dt><dd data-i18n="hero.stat1">এআই নোড</dd></div>
+        <div><dt>২</dt><dd data-i18n="hero.stat2">ভাষা (বাংলা / English)</dd></div>
+        <div><dt id="statTests">131</dt><dd data-i18n="hero.stat3">সবুজ টেস্ট</dd></div>
+        <div><dt data-i18n="hero.stat4v">অফলাইন</dt><dd data-i18n="hero.stat4">এজ-রেডি</dd></div>
+      </dl>
+    </div>
+
+    <!-- AI BRAIN -->
+    <div class="brain-stage">
+      <div class="brain-shell" aria-hidden="false" role="img"
+           aria-label="Animated AuraMed AI brain: a pulsing neural network">
+        <canvas id="brainCanvas"></canvas>
+        <div class="brain-core">
+          <span class="brain-core__pulse"></span>
+          <span class="brain-core__label">AuraMed</span>
+        </div>
+        <div class="brain-ring brain-ring--1"></div>
+        <div class="brain-ring brain-ring--2"></div>
+      </div>
+      <div class="brain-status">
+        <span class="brain-status__led"></span>
+        <span id="brainStatus" data-i18n="brain.status">এআই ইঞ্জিন সক্রিয় · নিউরাল নেটওয়ার্ক চালু</span>
+      </div>
+      <div class="brain-metrics">
+        <div><span data-i18n="brain.m1">ট্রয়েজ</span><b id="metricTriage">—</b></div>
+        <div><span data-i18n="brain.m2">ড্রাগ সেফটি</span><b id="metricDrug">—</b></div>
+        <div><span data-i18n="brain.m3">ঝুঁকি</span><b id="metricRisk">—</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CAPABILITY STRIP ═════════════════════ -->
+<section class="strip" id="architecture">
+  <div class="strip__inner">
+    <article class="cap"><span class="cap__ic">🚨</span><h3 data-i18n="cap1.t">জরুরি ট্রয়েজ</h3><p data-i18n="cap1.d">RED / YELLOW / GREEN — রেড ফ্ল্যাগ শনাক্ত হলেই ৯৯৯ ও প্রাথমিক চিকিৎসা নির্দেশিকা।</p></article>
+    <article class="cap"><span class="cap__ic">💊</span><h3 data-i18n="cap2.t">ঔষধ নিরাপত্তা</h3><p data-i18n="cap2.d">ড্রাগ-ড্রাগ ইন্টারঅ্যাকশন, অ্যালার্জি, কিডনি ও হৃদরোগের ঝুঁকি — ক্রিটিকাল হলে হার্ড স্টপ।</p></article>
+    <article class="cap"><span class="cap__ic">🥗</span><h3 data-i18n="cap3.t">খাদ্য ও পরামর্শ</h3><p data-i18n="cap3.d">আঞ্চলিক (বাঙালি প্লেট) ডায়েট প্ল্যান, সহজ ভাষায় ব্যাখ্যা ও জীবনযাপন পরামর্শ।</p></article>
+    <article class="cap"><span class="cap__ic">📄</span><h3 data-i18n="cap4.t">ডাউনলোডযোগ্য রিপোর্ট</h3><p data-i18n="cap4.d">রোগীর তথ্য, রোগ, ঔষধের নিয়ম, পরামর্শ ও ডায়েট — প্রিন্ট-রেডি A4 রিপোর্ট।</p></article>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ WORKSPACE ════════════════════════ -->
+<section class="workspace" id="workspace">
+  <div class="workspace__inner">
+    <header class="section-head">
+      <h2 data-i18n="ws.title">রোগীর রিপোর্ট তৈরি</h2>
+      <p data-i18n="ws.sub">চারটি ধাপে তথ্য দিন — AuraMed প্রতিটি ধাপে নিরাপত্তা যাচাই করবে।</p>
+    </header>
+
+    <ol class="steps" id="steps">
+      <li class="step is-active" data-step="1"><span class="step__n">1</span><span data-i18n="step1">রোগীর তথ্য</span></li>
+      <li class="step" data-step="2"><span class="step__n">2</span><span data-i18n="step2">উপসর্গ ও ট্রয়েজ</span></li>
+      <li class="step" data-step="3"><span class="step__n">3</span><span data-i18n="step3">রোগ ও ঔষধ</span></li>
+      <li class="step" data-step="4"><span class="step__n">4</span><span data-i18n="step4">রিপোর্ট</span></li>
+    </ol>
+    <div class="steps__bar"><span id="stepsFill"></span></div>
+
+    <!-- ---------- STEP 1 ---------- -->
+    <section class="panel is-active" data-panel="1">
+      <h3 data-i18n="s1.title">রোগীর তথ্য</h3>
+      <div class="form-grid">
+        <label class="fld"><span data-i18n="f.name">রোগীর নাম *</span>
+          <input id="p_name" type="text" placeholder="যেমন: রহিমা বেগম" autocomplete="name" /></label>
+
+        <label class="fld"><span data-i18n="f.age">বয়স (বছর)</span>
+          <input id="p_age" type="number" min="0" max="130" step="1" placeholder="45" /></label>
+
+        <label class="fld"><span data-i18n="f.sex">লিঙ্গ</span>
+          <select id="p_sex">
+            <option value="unknown" data-i18n="o.unknown">অজানা</option>
+            <option value="male" data-i18n="o.male">পুরুষ</option>
+            <option value="female" data-i18n="o.female">মহিলা</option>
+            <option value="other" data-i18n="o.other">অন্যান্য</option>
+          </select></label>
+
+        <label class="fld"><span data-i18n="f.weight">ওজন (কেজি)</span>
+          <input id="p_weight" type="number" min="1" max="500" step="0.5" placeholder="62" /></label>
+
+        <label class="fld"><span data-i18n="f.height">উচ্চতা (সেমি)</span>
+          <input id="p_height" type="number" min="30" max="280" step="0.5" placeholder="158" /></label>
+
+        <label class="fld"><span data-i18n="f.phone">মোবাইল</span>
+          <input id="p_phone" type="tel" placeholder="01XXXXXXXXX" autocomplete="tel" /></label>
+
+        <label class="fld fld--wide"><span data-i18n="f.address">ঠিকানা</span>
+          <input id="p_address" type="text" placeholder="গ্রাম/মহল্লা, উপজেলা, জেলা" /></label>
+
+        <label class="fld fld--wide"><span data-i18n="f.allergies">ঔষধে অ্যালার্জি (কমা দিয়ে আলাদা)</span>
+          <input id="p_allergies" type="text" placeholder="যেমন: penicillin, sulfa" /></label>
+
+        <label class="fld fld--wide"><span data-i18n="f.conditions">পূর্ব থেকে থাকা রোগ (কমা দিয়ে আলাদা)</span>
+          <input id="p_conditions" type="text" placeholder="যেমন: diabetes, hypertension" /></label>
+
+        <label class="fld"><span data-i18n="f.egfr">কিডনি eGFR (ঐচ্ছিক)</span>
+          <input id="p_egfr" type="number" min="1" max="200" step="1" placeholder="—" /></label>
+
+        <div class="toggles">
+          <label class="switch"><input id="p_diabetic" type="checkbox" /><span></span><b data-i18n="f.diabetic">ডায়াবেটিস আছে</b></label>
+          <label class="switch"><input id="p_smoker" type="checkbox" /><span></span><b data-i18n="f.smoker">ধূমপান করেন</b></label>
+          <label class="switch"><input id="p_pregnant" type="checkbox" /><span></span><b data-i18n="f.pregnant">গর্ভাবস্থা</b></label>
+        </div>
+
+        <div class="bmi-card" id="bmiCard" hidden>
+          <span data-i18n="f.bmi">BMI</span>
+          <b id="bmiValue">—</b>
+          <i id="bmiLabel">—</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- STEP 2 ---------- -->
+    <section class="panel" data-panel="2">
+      <h3 data-i18n="s2.title">উপসর্গ ও ভাইটালস</h3>
+      <label class="fld fld--wide"><span data-i18n="f.symptoms">উপসর্গ বিস্তারিত লিখুন (বাংলা বা English) *</span>
+        <textarea id="symptoms" rows="4" placeholder="যেমন: তিন দিন ধরে জ্বর, কাশি, বুকে হালকা চাপ, ক্লান্তি…"></textarea></label>
+
+      <div class="form-grid">
+        <label class="fld"><span data-i18n="f.temp">তাপমাত্রা (°C)</span><input id="v_temp" type="number" step="0.1" placeholder="38.5" /></label>
+        <label class="fld"><span data-i18n="f.spo2">SpO₂ (%)</span><input id="v_spo2" type="number" step="1" placeholder="97" /></label>
+        <label class="fld"><span data-i18n="f.sbp">সিস্টোলিক BP</span><input id="v_sbp" type="number" step="1" placeholder="140" /></label>
+        <label class="fld"><span data-i18n="f.dbp">ডায়াস্টোলিক BP</span><input id="v_dbp" type="number" step="1" placeholder="90" /></label>
+        <label class="fld"><span data-i18n="f.hr">পালস (HR)</span><input id="v_hr" type="number" step="1" placeholder="88" /></label>
+        <label class="fld"><span data-i18n="f.rr">শ্বাস প্রশ্বাস (RR)</span><input id="v_rr" type="number" step="1" placeholder="18" /></label>
+      </div>
+
+      <div class="row-actions">
+        <button type="button" class="btn btn--primary" id="runTriage">
+          <span data-i18n="a.triage">ট্রয়েজ চালান</span>
+        </button>
+        <span class="hint" data-i18n="a.triageHint">Node 02 — রেড ফ্ল্যাগ ইঞ্জিন</span>
+      </div>
+
+      <div class="result" id="triageResult" hidden></div>
+    </section>
+
+    <!-- ---------- STEP 3 ---------- -->
+    <section class="panel" data-panel="3">
+      <h3 data-i18n="s3.title">রোগ নির্ণয় ও ঔষধ</h3>
+
+      <div class="form-grid">
+        <label class="fld fld--wide"><span data-i18n="f.diagnosis">রোগের নাম *</span>
+          <input id="diagnosis" type="text" placeholder="যেমন: hypertension / উচ্চ রক্তচাপ" /></label>
+
+        <label class="fld"><span data-i18n="f.protocol">প্রোটোকল (Node 13)</span>
+          <select id="diagnosisKey">
+            <option value="">—</option>
+            <option value="hypertension">hypertension</option>
+            <option value="diabetes">diabetes</option>
+            <option value="pneumonia">pneumonia</option>
+            <option value="uri">uri</option>
+            <option value="diarrhea_dehydration">diarrhea_dehydration</option>
+            <option value="ckd">ckd</option>
+          </select></label>
+      </div>
+
+      <div class="meds">
+        <div class="meds__head">
+          <h4 data-i18n="s3.meds">ঔষধের তালিকা</h4>
+          <button type="button" class="btn btn--ghost btn--sm" id="addMed">+ <span data-i18n="a.addMed">ঔষধ যোগ</span></button>
+        </div>
+        <div class="meds__list" id="medList"></div>
+      </div>
+
+      <div class="row-actions">
+        <button type="button" class="btn btn--primary" id="runSafety">
+          <span data-i18n="a.safety">ঔষধ নিরাপত্তা যাচাই</span>
+        </button>
+        <span class="hint" data-i18n="a.safetyHint">Node 05 — ২৮ ওষুধের ফর্মুলারি</span>
+      </div>
+
+      <div class="result" id="safetyResult" hidden></div>
+    </section>
+
+    <!-- ---------- STEP 4 ---------- -->
+    <section class="panel" data-panel="4">
+      <h3 data-i18n="s4.title">রোগীর রিপোর্ট</h3>
+      <p class="panel__note" data-i18n="s4.note">
+        রিপোর্টে থাকবে: রোগীর নাম, বয়স, ওজন, উচ্চতা, রোগের নাম, ঔষধ ও সেবনবিধি,
+        রোগীর জন্য পরামর্শ এবং খাদ্যপরিকল্পনা।
+      </p>
+      <div class="report-actions">
+        <button type="button" class="btn btn--primary" id="buildReport" data-i18n="a.build">রিপোর্ট তৈরি করুন</button>
+        <button type="button" class="btn btn--ghost" id="downloadReport" disabled data-i18n="a.download">রিপোর্ট ডাউনলোড</button>
+        <button type="button" class="btn btn--ghost" id="printReport" disabled data-i18n="a.print">PDF / প্রিন্ট</button>
+      </div>
+      <div class="report-preview" id="reportPreview" hidden></div>
+    </section>
+
+    <nav class="panel-nav">
+      <button type="button" class="btn btn--ghost" id="prevBtn" data-i18n="a.prev">← পূর্ববর্তী</button>
+      <span class="panel-nav__info" id="panelInfo"></span>
+      <button type="button" class="btn btn--primary" id="nextBtn" data-i18n="a.next">পরবর্তী →</button>
+    </nav>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ REPORT ═══════════════════════════ -->
+<section class="report-showcase" id="report">
+  <div class="report-showcase__inner">
+    <h2 data-i18n="rs.title">রিপোর্টে যা যা থাকে</h2>
+    <div class="rs-grid">
+      <div class="rs-card"><b>০১</b><h4 data-i18n="rs1.t">রোগীর পরিচয়</h4><p data-i18n="rs1.d">নাম, বয়স, লিঙ্গ, ওজন, উচ্চতা, BMI, অ্যালার্জি ও পুরনো রোগ।</p></div>
+      <div class="rs-card"><b>০২</b><h4 data-i18n="rs2.t">রোগ নির্ণয়</h4><p data-i18n="rs2.d">রোগের নাম, সহজ ভাষায় ব্যাখ্যা এবং ট্রয়েজ ফলাফল (RED/YELLOW/GREEN)।</p></div>
+      <div class="rs-card"><b>০৩</b><h4 data-i18n="rs3.t">ঔষধ ও নিয়ম</h4><p data-i18n="rs3.d">মাত্রা, কতবার, কখন (খাবারের আগে/পরে), কতদিন — সতর্কতাসহ।</p></div>
+      <div class="rs-card"><b>০৪</b><h4 data-i18n="rs4.t">পরামর্শ ও ডায়েট</h4><p data-i18n="rs4.d">রোগীর জন্য পরামর্শ, প্রয়োজনীয় পরীক্ষা এবং আঞ্চলিক খাদ্যপরিকল্পনা।</p></div>
+    </div>
+    <p class="rs-note" data-i18n="rs.note">প্রতিটি রিপোর্টে থাকে বাধ্যতামূলক ডিসক্লেইমার ও চিকিৎসকের স্বাক্ষরের ঘর — AuraMed কখনো নিজে প্রেসক্রিপশন দেয় না।</p>
+  </div>
+</section>
+</main>
+
+<!-- ══════════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h5l2.6-7 4.2 14 2.6-7H29"/></svg>
+      </span>
+      <div>
+        <b>AuraMed</b>
+        <p data-i18n="foot.tag">AI-Powered Medical Assistant · v1.0.0</p>
+      </div>
+    </div>
+    <p class="foot__disclaimer" id="footDisclaimer"></p>
+    <div class="foot__links">
+      <a href="/docs" target="_blank" rel="noopener">Swagger API</a>
+      <a href="/health" target="_blank" rel="noopener">Health</a>
+      <a href="https://github.com/BFH-HAMID/AuraMed-Ai-Powered-Medical-Assistant" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="/static/js/brain.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

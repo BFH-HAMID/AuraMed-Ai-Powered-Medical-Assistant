@@ -85,6 +85,33 @@ ROUTE_CASES: list[tuple[str, str, dict | None]] = [
     ("POST", "/api/v1/25/alternative-care", {"condition": "back pain", "language": "en"}),
     ("GET", "/api/v1/26/audit/verify", None),
     ("GET", "/api/v1/26/audit/events?limit=5", None),
+    # --- patient report pack ------------------------------------------------
+    ("POST", "/api/v1/report/patient", {
+        "patient": {
+            "name": "রহিমা বেগম", "age_years": 54, "sex": "female",
+            "weight_kg": 68, "height_cm": 155, "phone": "01712345678",
+            "allergies": ["penicillin"], "conditions": ["hypertension", "diabetes"],
+            "renal_egfr": 58, "diabetic": True,
+        },
+        "symptoms_text": "তিন সপ্তাহ ধরে মাথা ঘোরা, ঘাড়ে ব্যথা, পিপাসা বেশি",
+        "vitals": {"sbp": 158, "dbp": 96, "hr": 92, "spo2": 97},
+        "diagnosis": "hypertension",
+        "diagnosis_key": "hypertension",
+        "medications": [
+            {"name": "metformin", "dose": "500 mg", "frequency": "1+0+1", "duration": "30 days"},
+            {"name": "ibuprofen", "dose": "400 mg", "frequency": "0+1+0", "duration": "5 days"},
+            {"name": "warfarin", "dose": "5 mg", "frequency": "0+0+1", "duration": "ongoing"},
+        ],
+        "language": "bn",
+    }),
+    ("POST", "/api/v1/report/patient/download", {
+        "patient": {"name": "Abdul Karim", "age_years": 61, "sex": "male",
+                    "weight_kg": 78, "height_cm": 170, "allergies": ["sulfa"]},
+        "symptoms_text": "crushing chest pain radiating to left arm, sweating",
+        "diagnosis": "acute coronary syndrome",
+        "medications": [{"name": "aspirin", "dose": "75 mg", "frequency": "0+0+1"}],
+        "language": "en",
+    }),
 ]
 
 _ROUTE_IDS = [f"{m} {u}" for m, u, _ in ROUTE_CASES]
@@ -207,3 +234,30 @@ def test_audit_endpoints_accept_the_configured_token(audit_token):
 @pytest.mark.parametrize("path", ["/openapi.json", "/docs", "/redoc"])
 def test_interactive_docs_render(path):
     assert client.get(path).status_code == 200
+
+
+# ---------------------------------------------------------------------------
+# Web UI: content negotiation on "/" and static assets
+# ---------------------------------------------------------------------------
+def test_root_serves_the_web_app_to_browsers_but_json_to_machines():
+    browser = client.get("/", headers={"Accept": "text/html,application/xhtml+xml"})
+    assert browser.status_code == 200
+    assert browser.headers["content-type"].startswith("text/html")
+    assert "AuraMed" in browser.text
+
+    machine = client.get("/", headers={"Accept": "application/json"})
+    assert machine.status_code == 200
+    assert machine.json()["service"].startswith("AuraMed")
+    assert machine.json()["web_ui"]
+
+
+@pytest.mark.parametrize("asset", [
+    "/static/css/styles.css",
+    "/static/js/app.js",
+    "/static/js/brain.js",
+])
+def test_frontend_assets_are_served(asset):
+    response = client.get(asset)
+    assert response.status_code == 200
+    assert len(response.content) > 100
+
