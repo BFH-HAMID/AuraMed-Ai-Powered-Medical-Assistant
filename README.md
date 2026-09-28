@@ -1,4 +1,16 @@
+<div align="center">
+
+<img src="assets/auramed-pulse.gif" alt="Animated AuraMed ECG pulse — care, safety, access" width="100%" />
+
 # 🏥 AuraMed — AI-Powered Medical Assistant
+
+**Clinical decision support designed for safer, more accessible care.**
+
+*Bengali (বাংলা) + English · emergency triage · privacy-first · edge/offline ready*
+
+</div>
+
+![AuraMed medical AI illustration: clinical data, ECG, and privacy shield](assets/auramed-hero.jpg)
 
 **A 26-point integrated AI medical architecture for localized, edge-deployable
 clinical decision support — with Bengali (বাংলা) language support, speech
@@ -11,6 +23,32 @@ processing, handwriting OCR, emergency triage and full offline resilience.**
 > The disclaimer is enforced in **three** places: every API **response body**
 > (`disclaimer`), every **HTTP response header** (`X-AuraMed-Disclaimer`), and
 > the **spoken TTS preamble** (Node 06). AuraMed never auto-prescribes.
+
+---
+
+## ✨ At a glance
+
+| 🩺 Safety-first triage | 💊 Medication checks | 🌏 Built for accessibility |
+|---|---|---|
+| RED / YELLOW / GREEN routing with red-flag gates | Interaction, allergy, renal, cardiac and pregnancy checks | Bengali and English workflows, with offline-safe core logic |
+
+| 🔐 Privacy-aware processing | 🧠 Clinical decision support | 🧾 Traceable outputs |
+|---|---|---|
+| PII redaction and protected data handling | Independent second-opinion consensus and escalation | Physician-review disclaimer and tamper-evident audit trail |
+
+> AuraMed is a **decision-support framework**, not a diagnostic or prescribing
+> service. Its outputs require review by a licensed physician.
+
+## 🧭 Contents
+
+- [The 26 nodes](#-the-26-nodes)
+- [Quickstart](#-quickstart)
+- [Architecture overview](#️-architecture-overview)
+- [Production engine deep-dives](#-production-engine-deep-dives)
+- [Repository layout](#-repository-layout)
+- [Tech stack](#️-tech-stack)
+- [Safety and compliance guardrails](#-safety--compliance-guardrails)
+- [License](#-license)
 
 ---
 
